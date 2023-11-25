@@ -220,10 +220,49 @@
     padding: 0.5em;
     width: 30em;
 }
+.upload {
+    margin: auto;
+    background-color: white;
+    margin-top: 150px;
+    max-width: 75%;
+}
+.item {
+    border-bottom: 1px solid black;
+    padding: 20px;
+}
+.doc-img {
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.close-button {
+    align-items: center;
+    background-color: rgb(61 61 61);
+    border-radius: 9999px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    height: 1.5rem;
+    justify-content: center;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 1.5rem;
+}
+.document {
+    position: relative;
+    padding: 13px;
+}
+.block {
+    display: block;
+}
+.holder {
+    flex-wrap: wrap;
+}
 
 :root {
     --bg-image: url(bg.jpg); 
-    font-family: 'League Spartan', sans-serif
+    font-family: 'League Spartan', sans-serif;
+    font-size: 16px;
 }
 
 input[type="submit"] { 

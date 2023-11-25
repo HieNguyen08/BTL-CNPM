@@ -14,7 +14,6 @@
             </div>
             <a href="../login.html">
                 <div id="kc-form-buttons" class="form-group">
-                    <input type="hidden" id="id-hidden-input" name="credentialId" />
                     <input tabindex="4" class="logout center" name="logout" id="logout" type="submit" value="LOG OUT" />
                 </div>
             </a>
@@ -76,10 +75,9 @@
             <div class="shade"></div>
             <div class="flex-column center sort login">
                 <div class="flex box personal"style="margin-bottom: 0%;">
-                    <div style="padding-right: 20px; grid-area: left;">Location:</div>
+                    <div style="padding-right: 20px; grid-area: left; margin-top: 4px;">Location:</div>
                     <div id="kc-form-buttons">
-                        <input type="hidden" id="id-hidden-input" name="credentialId" />
-                        <input value="None"/>
+                        <input type="search" id="id-hidden-input" name="credentialId" placeholder="Search (by ID)"/>
                     </div>
                 </div>
                 <div class="flex box personal"style="margin-bottom: 0%;">
@@ -114,11 +112,11 @@
                 </div>
                 <div class="flex c-cen">
                     <div onclick="op()" id="kc-form-buttons">
-                        <input type="hidden" id="id-hidden-input" name="credentialId" />
+    
                         <input class="exit" type="submit" value="Exit"/>
                     </div>
                     <div onclick="op()" id="kc-form-buttons">
-                        <input type="hidden" id="id-hidden-input" name="credentialId" />
+    
                         <input class="confirm" type="submit" value="Confirm"/>
                     </div>
                 </div>
