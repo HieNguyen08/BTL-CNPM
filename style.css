@@ -33,9 +33,6 @@
 .logout {
     background-color: #48E7F1;
     padding: 20px 50px;
-    border-radius: 10px;
-    font-size: 1rem; 
-    font-weight: 600; 
 }
 .button {
     transition-duration: 0.4s;
