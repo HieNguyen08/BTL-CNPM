@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css?family=League+Spartan:100,200,300,400,500,600,700,800,900&display=swap'); 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,300i,400i,500i,600i,700i,800i&display=swap'); 
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+.right {
+    justify-content: right;
+}
+.login {
+    margin: auto;
+    max-width: 400px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 200px;
+}
+.flex {
+    display: flex;
+}
+.c-cen{
+    justify-content: space-between;
+}
+.admin {
+    background-color: yellow;
+    padding: 20px 50px;
+}
+.student {
+    background-color: #57E7FB;
+    padding: 20px 50px;
+}
+.logout {
+    background-color: #48E7F1;
+    padding: 20px 50px;
+    border-radius: 10px;
+    font-size: 1rem; 
+    font-weight: 600; 
+}
+.button {
+    transition-duration: 0.4s;
+}
+.select-dropdown {
+    position: absolute;
+    list-style: none;
+    width: calc(100% - 2px);
+    background-color: white;   
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: 0.5s ease;
+    transform: scaleY(0);
+    opacity: 0;
+    visibility: hidden;
+}
+.select-dropdown li {
+    position: relative;
+    cursor: pointer;
+    gap: 0;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid black;
+    max-width: 100%;
+    padding: 10px;
+    width: 25%;
+}
+.select-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+}
+.flex-grow {
+    flex-grow: 1;
+}
+.info {
+    max-width: 200px; 
+    background-color: #47ACF4;
+}
+.main {
+    display: grid;
+    grid-template-areas:
+        "info display";
+    grid-template-columns: 200px auto;
+    overflow: hidden;
+}
+.flex-column {
+    flex-direction: column;
+}
+.h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.selected {
+    background-color: #72B1FF;
+}
+.left {
+    align-items: self-start;
+}
+.box {
+    padding: 20px;
+    background-color: white;
+    border:  1px solid black;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.grid-2 {
+    display: grid;
+    grid-template-areas:
+        "left right";
+    column-gap: 20px;
+    overflow: hidden;
+}
+.personal {
+    grid-template-columns: minmax(10px, 100px) minmax(50%, auto);
+}
+.mt-60 {
+    margin-top: 60px;
+}
+.p-25 {
+    padding: 25px;
+}
+.no-m {
+    margin: 0 !important;
+}
+.loglist {
+    display: grid;
+    grid-template-areas:
+        "detail location printer date";
+    column-gap: 0.5rem;
+    padding: 20px;
+    row-gap: 0.25rem;
+    background-color: white;
+    border: 1px solid black;
+    grid-template-columns: 25% 25% 25%;
+    overflow: hidden;
+}
+.model, .shade {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.flex-start {
+    align-items: flex-start;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.shade {
+    background: rgba(0,0,0,.4);
+}
+.sort {
+    position: fixed;
+    left: calc(50% - 200px);
+}
+.exit {
+    background-color: red;
+    margin: auto;
+    width: 150px;
+    height: 60px;
+}
+.confirm {
+    background-color: #5AF64C;
+    margin: auto;
+    width: 150px;
+    height: 60px;
+}
+.printerlist {
+    display: grid;
+    grid-template-areas:
+        "check id name model des loc loc loc stat"
+        "check id name model des cam buil room stat";
+    background-color: white;
+    border: 1px solid black;
+    overflow: hidden;
+    grid-template-columns: 4em auto auto auto auto auto auto auto 5em;
+}
+.printerlist > div {
+    border: 1px solid black;
+    padding: 0.25em 1em;
+}
+.printer {
+    display: grid;
+    grid-template-areas:
+        "check id name model des cam buil room stat";
+    background-color: white;
+    border: 1px solid black;
+    overflow: hidden;
+    grid-template-columns: 4em auto auto auto auto auto auto auto 5em;
+}
+.printer > div {
+    border: 1px solid black;
+    padding: 0.25em 1em;
+}
+.on {
+    color: #5AF64C;
+}
+.off {
+    color: #FF0000;
+}
+.select {
+    background-color: yellow;
+    padding: 20px 50px;
+    align-items: center !important;
+    display: flex;
+}
+.bold {
+    font-weight: bold;
+}
+.notice {
+    background-color: #FF0000;
+    padding: 1em 10em;
+}
+.error {
+    margin: auto;
+    background-color: white;
+    margin-top: 150px;
+    max-width: 70%;
+}
+.retry {
+    background-color: #5AF64C;
+    padding: 0.5em;
+}
+
+:root {
+    --bg-image: url(bg.jpg); 
+    font-family: 'League Spartan', sans-serif
+}
+
+input[type="submit"] { 
+    cursor: pointer; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    border-radius: 10px; 
+} 
+body {
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0;
+}
+html {
+    height: 100%;
+}
+ul {
+    columns: 4;
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+input { 
+    cursor: pointer; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    border-radius: 10px; 
+}
+input[type="checkbox"]:not(:checked), input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+}
+input[type="checkbox"] + label {
+    background-color: #B7BFB6;
+    border: 1px solid black;
+    border-radius: 999px;
+    cursor: pointer;
+    padding: 2px 8px;
+    transition: background .15s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+input[type="checkbox"]:checked + label {
+    background-color: #5AF64C;
+}
+input[type="radio"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+    top: 4px;
+    background-color: #D9D9D9;
+}
+input[type="radio"]:checked {
+    background-color: #5AF64C;
+    
+}
+
+#name {
+    background: white;
+    width: fit-content;
+}
+#menu {
+    background: #72B1FF;
+    
+}
+#popmenu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+#credit {
+    display: grid;
+    grid-template-areas:
+        "logo name website contact"
+        "logo name link list";
+    background-color: #164399;
+    column-gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    row-gap: 0.25rem;
+    color: white;
+    overflow: hidden;
+}
+#sortmenu {
+    transform: scaleY(0);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    visibility: hidden;
+}
+#sortmenu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+}

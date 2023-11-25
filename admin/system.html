@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="login-pf">
+    <head>
+        <title>Main</title>
+        <link rel="stylesheet" href="../style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body style="overflow-y: auto; height: 100%;">
+        <div class="flex" style="justify-content: space-between;">
+            <div id="name" class="flex center">
+                <a href="main.html"><img src="../logo.png" style="width: 50px;" draggable="false"></a>
+                <p style="padding: 0px 50px">Nguyễn Văn A</p>
+            </div>
+            <a href="../login.html">
+                <div id="kc-form-buttons" class="form-group">
+                    <input type="hidden" id="id-hidden-input" name="credentialId" />
+                    <input tabindex="4" class="logout center" name="logout" id="logout" type="submit" value="LOG OUT" />
+                </div>
+            </a>
+        </div>
+        <div>
+            <div id="menu" class="flex center">
+                <button id="popmenu" onclick="pop()" class="flex" style=" min-height: 2.5rem; min-width: 2.5rem; padding-top: 8px;">
+                    <span class="flex" style="pointer-events: none; justify-content: center;">
+                        <svg style="position: absolute; padding-left: 20px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h12M3 6h18M3 18h6"></path>
+                        </svg>
+                    </span>
+                </button>
+                <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
+            </div>
+            <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+                <li><a href="student.html">Manage Student</a></li>
+                <li><a href="view.html">View Log</a></li>
+                <li><a href="printer.html">Manage Printer</a></li>
+                <li class="selected"><a href="system.html">Configure System</a></li>
+                <li style="border: none;"><a href="report.html">Reports</a></li>
+            </div>
+        </div>
+        <div id="menu" class="flex center mt-60 p-25">
+            <div style="width: 100%;" class="flex center">Default configuration</div>
+        </div>
+        <div class="flex box grid-2">
+            <div style="padding-right: 20px; grid-area: left; border-right: 1px solid black;">Default Pages</div>
+            <div style="grid-area: right;">Types of file</div>
+        </div>
+        <footer id="credit">
+            <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
+            <div style="grid-area: name;" class="center flex"><h1>Student Smart Printing Service</h1></div>
+            <div style="grid-area: website;"><h4><i class="fa fa-globe" style="color: black; padding-right: 5px;"></i>WEBSITE</h4></div>
+            <div style="grid-area: link; padding-left: 10px;" class="flex">SSPS.com</div>
+            <div style="grid-area: contact;"><h4><i class="fa fa-comments" style="color: black; padding-right: 5px;"></i>LIÊN HỆ QUẢN LÝ</h4></div>
+            <div style="grid-area: list;" class="flex"><i class="fa fa-map-marker" style="color: black; padding-right: 5px;"></i>268 Lý Thường Kiệt, P.14, Q.10, TP.HCM<br>(028) 38 651 670 - (028) 28 647 256</div>
+        </footer>
+    </body>
+    <script src="../main.js"></script>
+</html>

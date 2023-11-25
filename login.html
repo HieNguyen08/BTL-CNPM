@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="login-pf">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="flex-column center login">
+            <div class="flex center h1">
+                Student Smart Printing Service
+            </div>
+            <div class="flex center h1">
+                (SSPS)
+            </div>
+            <div class="flex center">
+                <img src="HCMCUT.svg" style="width: 200px;" draggable="false">
+            </div>
+            <div class="flex center">
+                <p>Who are you?</p>
+            </div>
+            <div class="flex c-cen">
+                <form action="admin/main.html">
+                    <div id="kc-form-buttons">
+                        <input type="hidden" id="id-hidden-input" name="credentialId" />
+                        <input tabindex="4" class="admin center" name="admin" id="admin" type="submit" value="Admin"/>
+                    </div>
+                </form>
+                <form action="user/main.html">
+                    <div id="kc-form-buttons">
+                        <input type="hidden" id="id-hidden-input" name="credentialId" />
+                        <input tabindex="4" class="student center" name="student" id="student" type="submit" value="Student"/>
+                    </div>
+                </form>
+            </div>
+            <div class="flex center">
+                <p>Securitied by HCMUT-SSO system</p>
+            </div>
+        </div>
+    </body>
+</html>
