@@ -216,11 +216,12 @@
     margin: auto;
     background-color: white;
     margin-top: 150px;
-    max-width: 70%;
+    max-width: 75%;
 }
 .retry {
     background-color: #5AF64C;
     padding: 0.5em;
+    width: 30em;
 }
 
 :root {
