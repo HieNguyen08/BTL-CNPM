@@ -258,6 +258,32 @@
 .holder {
     flex-wrap: wrap;
 }
+.success {
+    margin: auto;
+    background-color: #BCDAFF;
+    margin-top: 150px;
+    max-width: 80%;
+}
+.notice-blue {
+    background-color: #164399;
+    padding: 1em 10em;
+    color: white;
+}
+.notice-info {
+    display: grid;
+    grid-template-areas: "lef rig";
+    grid-template-columns: 40% 60%;
+}
+.detail-box {
+    border-radius: 10px;
+    background-color: white;
+}
+.detail-box > div {
+    padding: 5px;
+    display: grid;
+    grid-template-areas: "lef rig";
+    grid-template-columns: 40% 60%;
+}
 
 :root {
     --bg-image: url(bg.jpg); 
