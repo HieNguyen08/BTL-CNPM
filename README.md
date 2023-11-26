@@ -136,6 +136,7 @@ The Student Smart Printing Service (HCMUT_SSPS) is a web-based application desig
 ## Architecture - Layered Architecture
 ![Architecture](4.png)
 - ***Description: Login***
+
 1, Client Layer: The process begins when a student accesses the printing service through the client layer, which provides a login interface. The student enters their credentials (e.g., username and password) to initiate the authentication process.
 2, Application Layer: The client layer sends the entered credentials to the application layer for authentication. The application layer, in turn, verifies these credentials against stored user data in the system's database. If the credentials are valid, the application layer proceeds to the next steps. Otherwise, an authentication failure message is sent back to the client layer.
 3, Platform Layer: The platform layer provides underlying services such as encryption and secure communication, ensuring that the authentication process is secure and protecting user credentials during transmission between the client and application layers.
