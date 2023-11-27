@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="login-pf">
+    <head>
+        <title>Main</title>
+        <link rel="stylesheet" href="../style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row; /* Giữ layout theo chiều ngang */
+            justify-content: space-around; /* Căn giữa các phần tử */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            height: 100vh;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .printer-box,
+        .page-setup-box,
+        .instruction-box,
+        .review-box {
+            width: 300px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px;
+        }
+
+        .print-button {
+            background-color: #5AF64C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .information-icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .information-icon i {
+            margin-right: 5px;
+        }
+
+        .review-container {
+            margin-top: 20px;
+        }
+
+        .review-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comment-section {
+            margin-top: 20px;
+        }
+
+        .comment-input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .star-rating {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .star {
+            color: gold;
+            cursor: pointer;
+        }
+            .printer-box h3,
+            .page-setup-box h3 {
+                margin-top: 0;
+            }
+
+            .printer-box p,
+            .page-setup-box p {
+                margin: 10px 0;
+            }
+
+            .page-setup-box label,
+            .page-setup-box input,
+            .page-setup-box select {
+                margin-bottom: 10px;
+            }
+
+            /* Adjust styles for the layout */
+            .flex {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .left-column {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .left-column>div {
+                margin-bottom: 20px;
+            }
+
+            .right-column {
+                flex: 1;
+            }
+
+            .feature-box h3 {
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <body style="overflow-y: auto; height: 100%;">
+            <div class="flex" style="justify-content: space-between;">
+                <div id="name" class="flex center">
+                    <a href="main.html"><img src="../logo.png" style="width: 50px;" draggable="false"></a>
+                    <p style="padding: 0px 50px">Nguyễn Văn A</p>
+                </div>
+                <a href="../login.html">
+                    <div id="kc-form-buttons" class="form-group">
+                        <input tabindex="4" class="logout center" type="submit" value="LOG OUT" />
+                    </div>
+                </a>
+            </div>
+            <div>
+                <div id="menu" class="flex center">
+                    <button id="popmenu" onclick="pop()" class="flex" style=" min-height: 2.5rem; min-width: 2.5rem; padding-top: 8px;">
+                        <span class="flex" style="pointer-events: none; justify-content: center;">
+                            <svg style="position: absolute; padding-left: 20px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h12M3 6h18M3 18h6"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
+                </div>
+                <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+                    <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
+                    <li><a href="log.html">Log</a></li>
+                    <li><a href="pay.html">Payment</a></li>
+                    <li style="border: none;"><a href="my.html">My Profile</a></li>
+                </div>
+            </div>
+            <!-- Printer and Page Setup Boxes -->
+            <div class="flex">
+                <div class="left-column">
+                    <div class="printer-box">
+                        <h3>Printer</h3>
+                        <p id="printerName">Printer Name: Your Printer</p>
+                        <!-- Add more printer details as needed -->
+                    </div>
+                    <!-- Page Setup Box -->
+                    <div class="page-setup-box">
+                        <h3>Page Setup</h3>
+                        <label for="numPages">Number of Pages:</label>
+                        <input type="text" id="numPages" name="numPages" value="1">
+                        <br>
+                        <label for="doubleSided">Double Sided:</label>
+                        <select id="doubleSided" name="doubleSided">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                        <br>
+                        <label for="margins">Margins:</label>
+                        <select id="margins" name="margins">
+                            <option value="normal">Normal</option>
+                            <option value="narrow">Narrow</option>
+                            <option value="wide">Wide</option>
+                        </select>
+                        <br>
+                        <label for="pageSize">Page Size:</label>
+                        <select id="pageSize" name="pageSize">
+                            <option value="letter">Letter</option>
+                            <option value="a4">A4</option>
+                            <!-- Add more page size options as needed -->
+                        </select>
+                        <br>
+                        <!-- New Features -->
+                        <label for="colorPrinting">Color Printing:</label>
+                        <select id="colorPrinting" name="colorPrinting">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                        <br>
+                        <label for="pageRange">Page Range:</label>
+                        <input type="text" id="pageRange" name="pageRange" placeholder="e.g., 1-5">
+                        <br>
+            <div class="file-info" id="fileInfo">
+                <h4>Uploaded File Information</h4>
+                <p id="docName">Document Name: </p>
+                <p id="docType">Document Type: </p>
+                <p id="docSize">Document Size: </p>
+            </div>
+                    </div>
+                </div>
+                <!-- Right Column for Preview and Features -->
+                <div class="right-column">
+                    <button class="print-button" onclick="confirmPrint()">Print</button>
+                </div>
+<!-- Hướng dẫn sử dụng Box -->
+        <div class="instruction-box">
+            <div class="information-icon">
+                <i class="fa fa-info-circle"></i>
+                <h3>Hướng dẫn sử dụng</h3>
+            </div>
+            <p>Thông tin hướng dẫn cách sử dụng chức năng thiết kế in:</p>
+        </div>
+
+                <!-- Review Box -->
+        <div class="review-box">
+            <div class="information-icon">
+                <i class="fa fa-star"></i>
+                <h3>Đánh giá 5 sao</h3>
+            </div>
+            <div class="review-container">
+                <!-- Tài khoản và số sao -->
+                <div class="review-item">
+                    <div>Tài khoản A</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-item">
+                    <div>Tài khoản B</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                <!-- Lời đánh giá -->
+                <div class="comment-section">
+                    <div class="comment-input" contenteditable="true" style="border: 1px solid black; padding: 4px; min-height: 50px;" placeholder="Viết đánh giá của bạn (tối đa 200 chữ)..."></div>
+                    <div class="star-rating">
+                        <div class="star" onclick="selectStar(1)">⭐</div>
+                        <div class="star" onclick="selectStar(2)">⭐</div>
+                        <div class="star" onclick="selectStar(3)">⭐</div>
+                        <div class="star" onclick="selectStar(4)">⭐</div>
+                        <div class="star" onclick="selectStar(5)">⭐</div>
+                    </div>
+                    <button onclick="confirmReview()">Gửi đánh giá</button>
+                </div>
+            </div>
+        </div>
+            </div>
+        </body>
+        <script src="../main.js"></script>
+        <script>
+            // Mock data for printer and page setup
+            const printerDetails = {
+                name: 'Your Printer',
+                // Add more printer details as needed
+            };
+
+            const pageSetup = {
+                numPages: 1,
+                doubleSided: true,
+                margins: 'normal',
+                pageSize: 'letter',
+                // Add more page setup options as needed
+            };
+
+            // Mock data for additional features
+            const additionalFeatures = {
+                colorPrinting: true,
+                pageRange: '',
+                totalPages: 0,
+                dataSize: '0 MB',
+                docName: 'Untitled',
+                docType: 'Unknown',
+            };
+
+            // Update printer box with dynamic data
+            function updatePrinterBox() {
+                const printerName = document.getElementById('printerName');
+                printerName.textContent = `Printer Name: ${printerDetails.name}`;
+                // Update other printer details as needed
+            }
+
+            // Update page setup box with dynamic data
+            function updatePageSetupBox() {
+                const numPagesInput = document.getElementById('numPages');
+                const doubleSidedSelect = document.getElementById('doubleSided');
+                const marginsSelect = document.getElementById('margins');
+                const pageSizeSelect = document.getElementById('pageSize');
+
+                numPagesInput.value = pageSetup.numPages;
+                doubleSidedSelect.value = pageSetup.doubleSided.toString();
+                marginsSelect.value = pageSetup.margins;
+                pageSizeSelect.value = pageSetup.pageSize;
+                // Update other page setup options as needed
+            }
+
+            // Update additional features box with dynamic data
+            function updateAdditionalFeaturesBox() {
+                const colorPrintingSelect = document.getElementById('colorPrinting');
+                const pageRangeInput = document.getElementById('pageRange');
+                const totalPagesSpan = document.getElementById('totalPages');
+                const dataSizeSpan = document.getElementById('dataSize');
+                const docNameSpan = document.getElementById('docName');
+                const docTypeSpan = document.getElementById('docType');
+
+                colorPrintingSelect.value = additionalFeatures.colorPrinting.toString();
+                pageRangeInput.value = additionalFeatures.pageRange;
+                totalPagesSpan.textContent = additionalFeatures.totalPages;
+                dataSizeSpan.textContent = additionalFeatures.dataSize;
+                docNameSpan.textContent = additionalFeatures.docName;
+                docTypeSpan.textContent = additionalFeatures.docType;
+            }
+
+            // Print Document Function
+            function printDocument() {
+                // Implement your print functionality here
+                alert('Printing document...');
+            }
+
+            // Confirm Print Function
+            function confirmPrint() {
+                const userConfirmed = confirm('Bạn chắc chắn muốn in?');
+                if (userConfirmed) {
+                    printDocument();
+                    alert('Printing successful');
+                }
+            }
+           // Hàm để lấy thông tin tài liệu từ sessionStorage
+            function getUploadedFileInfo() {
+                const uploadedFileJson = sessionStorage.getItem('uploadedFile');
+                if (uploadedFileJson) {
+                    const uploadedFile = JSON.parse(uploadedFileJson);
+                    return uploadedFile;
+                }
+                return null;
+            }
+
+            // Hàm để hiển thị thông tin tài liệu trong Page Setup Box
+            function displayUploadedFileInfo() {
+                const uploadedFileInfo = getUploadedFileInfo();
+                if (uploadedFileInfo) {
+                    // Hiển thị thông tin tài liệu trong Page Setup Box
+                    document.getElementById('docName').textContent = `Document Name: ${uploadedFileInfo.name}`;
+                    document.getElementById('docType').textContent = `Document Type: ${uploadedFileInfo.type}`;
+                    document.getElementById('docSize').textContent = `Document Size: ${uploadedFileInfo.size} bytes`;
+                }
+            }
+
+            // Gọi hàm hiển thị thông tin tài liệu khi trang được load
+            window.onload = function () {
+                displayUploadedFileInfo();
+            };
+// Lưu trữ số sao được chọn
+let selectedStar = 0;
+
+// Hàm chọn số sao
+function selectStar(star) {
+    selectedStar = star;
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+        star.style.color = index < selectedStar ? 'gold' : 'black';
+    });
+}
+
+// Hàm xác nhận và hiển thị thông báo đánh giá
+function confirmReview() {
+    const commentInput = document.querySelector('.comment-input');
+    const comment = commentInput.textContent.trim(); // Lấy nội dung đánh giá
+
+    if (selectedStar === 0) {
+        alert('Vui lòng chọn số sao trước khi gửi đánh giá.');
+        return;
+    }
+
+    if (comment === '') {
+        alert('Vui lòng nhập đánh giá của bạn trước khi gửi.');
+        return;
+    }
+
+    // Gửi đánh giá và số sao đến server hoặc xử lý theo nhu cầu cụ thể của bạn
+    // Ở đây, chỉ hiển thị thông báo đánh giá trong console
+
+    console.log(`Đánh giá: ${selectedStar} sao`);
+    console.log(`Lời đánh giá: ${comment}`);
+
+    // Thông báo thành công
+    alert('Đánh giá của bạn đã được gửi thành công!');
+}
+            // Initial update of all boxes
+            updatePrinterBox();
+            updatePageSetupBox();
+            updateAdditionalFeaturesBox();
+        </script>
+    </body>
+    <script src="../main.js"></script>
+</html>
