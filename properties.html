@@ -7,36 +7,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .flex {
-            display: flex;
-            justify-content: space-between;
-        }
+/* Các box chính */
+.printer-box,
+.page-setup-box,
+.instruction-box,
+.review-box {
+    width: 300px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Tăng bo tròn góc */
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng */
+}
 
-        .printer-box,
-        .page-setup-box,
-        .instruction-box,
-        .review-box {
-            width: 300px;
-            padding: 20px;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 20px;
-        }
+/* Nút in */
+.print-button {
+    background-color: #5AF64C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
 
-        .print-button {
-            background-color: #5AF64C;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-	@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.print-button:hover {
+    background-color: #4aa63e;
+}
+
+.star {
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.star:hover {
+    color: gold;
+}
+
+.instruction-box,
+.review-box {
+    overflow: hidden;
+    transition: height 0.3s ease; /* Hiệu ứng mượt mà */
+}
+
+/* Box thông tin hướng dẫn khi thu gọn */
+.collapsed {
+    height: 30px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hiệu ứng mở rộng box */
+.instruction-box:not(.collapsed),
+.review-box:not(.collapsed) {
+    height: auto;
+}
+
+/* Hiển thị icon và tiêu đề đẹp hơn */
+.information-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.information-icon i {
+    margin-right: 10px;
+    color: #007bff; /* Màu chủ đạo */
+    font-size: 20px;
+}
+
+.information-icon h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+/* Hiệu ứng khi hover đánh giá container */
+.review-container:hover {
+    background-color: #f0f0f0; /* Màu khi di chuột qua */
+}
+
+/* Style cho comment input */
+.comment-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 50px;
+    font-size: 14px;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #007bff; /* Màu chủ đạo khi focus */
+}
+
+/* Hiệu ứng nút gửi đánh giá */
+.review-box button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Hiệu ứng mượt mà */
+}
+
+.review-box button:hover {
+    background-color: #0056b3; /* Màu khi di chuột qua */
 }
 
 /* CSS cho trạng thái loading overlay */
@@ -65,80 +149,28 @@
     font-weight: bold;
     color: #333;
 }
+        .margin-custom {
+    margin: 10px; /* Giá trị margin có thể điều chỉnh theo nhu cầu */
+}
+.logout-container {
+    margin-left: auto; /* Đẩy nút "LOG OUT" về phía bên phải */
+    margin-right: 0px; /* Khoảng cách từ mép phải của trang */
+}
 
-        .information-icon {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+.logout {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Hiệu ứng mượt mà */
+}
 
-        .information-icon i {
-            margin-right: 5px;
-        }
-
-        .review-container {
-            margin-top: 20px;
-        }
-
-        .review-item {
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-	.collapsed {
-    		height: 30px; /* Điều chỉnh chiều cao khi box được thu gọn */
-    		overflow: hidden;
-    		transition: height 0.3s ease;
-    		cursor: pointer;
-	}
-
-	/* Định dạng khi box mở rộng */
-	.instruction-box:not(.collapsed),
-	.review-box:not(.collapsed) {
-    		height: auto;
-	}
-
-        .comment-section {
-            margin-top: 20px;
-        }
-
-        .comment-input {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .star-rating {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .star {
-            color: gold;
-            cursor: pointer;
-        }
-
-        .printer-box h3,
-        .page-setup-box h3 {
-            margin-top: 0;
-        }
-
-        .printer-box p,
-        .page-setup-box p {
-            margin: 10px 0;
-        }
-
-        .page-setup-box label,
-        .page-setup-box input,
-        .page-setup-box select {
-            margin-bottom: 10px;
-        }
-
-        .feature-box h3 {
-            margin-top: 0;
-        }
+.logout:hover {
+    background-color: #0056b3; /* Màu khi di chuột qua */
+}
     </style>
 </head>
 
@@ -148,11 +180,13 @@
             <a href="main.html"><img src="../logo.png" style="width: 50px;" draggable="false"></a>
             <p style="padding: 0px 50px">Nguyễn Văn A</p>
         </div>
+        <div class="logout-container">
         <a href="../login.html">
             <div id="kc-form-buttons" class="form-group">
                 <input tabindex="4" class="logout center" type="submit" value="LOG OUT" />
             </div>
         </a>
+            </div>
     </div>
 
     <div>
@@ -167,10 +201,12 @@
             <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
         </div>
         <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+
             <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
             <li><a href="log.html">Log</a></li>
             <li><a href="pay.html">Payment</a></li>
             <li style="border: none;"><a href="my.html">My Profile</a></li>
+
         </div>
     </div>
 
@@ -178,22 +214,19 @@
     <div class="flex">
         <div class="printer-box">
             <h3>Printer</h3>
-            <p id="printerName">Printer Name: Your Printer</p>
-            <p id="printerID">Printer ID</p>
-            <p id="printerLocation">Printer Location</p>
+            <p id="printerName">Printer Name: </p>
+            <p id="printerID">Printer id: </p>
+            <p id="printerLocation">Printer Location: </p>
             <button class="print-button" onclick="confirmPrint()">
     		<i class="fa fa-print fa-2x" style="margin-bottom: 10px;"></i> Print
 	    </button>
-    <p id="lastAccessInfo">Lần truy cập gần nhất: <span id="lastAccessDate"></span></p>
-    <button class="save-access-button" onclick="saveLastAccessInfo()">Lưu lần truy cập</button>
-            <!-- Add more printer details as needed -->
         </div>
 
         <!-- Page Setup Box -->
         <div class="page-setup-box">
             <h3>Page Setup</h3>
             <label for="numPages">Number of Copies:</label>
-            <input type="number" id="numPages" name="numPages" value="1">
+            <input type="number" id="numPages" name="numPages" value="1" required>
             <br>
             <label for="Colour">Colour:</label>
             <select id="Colour" name="Colour">
@@ -217,6 +250,9 @@
                <option value="mirrored">Mirrored</option>
             </select>
             <br>
+            <label for="customMargin">Custom Margin:</label>
+            <input type="text" id="customMargin" name="customMargin" placeholder="Enter custom margin">
+            <br>
             <label for="pageSize">Page Size:</label>
             <select id="pageSize" name="pageSize">
                 <option value="letter">Letter</option>
@@ -236,6 +272,7 @@
                 <p id="docName">Document Name: </p>
                 <p id="docType">Document Type: </p>
                 <p id="docSize">Document Size: </p>
+                <p id="totalPageCount">Total Pages: </p> <!-- Thêm dòng này -->
             </div>
         </div>
 
@@ -246,6 +283,22 @@
                 <h3>Hướng dẫn sử dụng</h3>
             </div>
             <p>Thông tin hướng dẫn cách sử dụng chức năng thiết kế in:</p>
+                <!-- Thêm các hướng dẫn sử dụng vào đây -->
+    <div>
+        <h4>Bước 1: Chọn số lượng bản in</h4>
+        <p>Điền số lượng bản in bạn muốn vào ô "Number of Copies" trong Page Setup Box.</p>
+    </div>
+    <div>
+        <h4>Bước 2: Cấu hình in</h4>
+        <p>Chọn các tùy chọn như màu sắc, in hai mặt, kích thước giấy, và các tùy chọn khác trong Page Setup Box.</p>
+    </div>
+    <div>
+        <h4>Bước 3: Kiểm tra và xác nhận</h4>
+        <p>Đảm bảo kiểm tra lại các cài đặt và nhấn nút "Print" để xác nhận in.</p>
+    </div>
+
+    <!-- Kết thúc hướng dẫn sử dụng -->
+
         </div>
 
         <!-- Review Box -->
@@ -280,17 +333,25 @@
         </div>
     </div>
 <div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); z-index: 999; text-align: center;">
-    <img src="D:\Downloads\icegif-1260.gif" alt="Loading..." style="margin-top: 20%; width: 100px; height: 100px;">
+    <img src="icegif-1260.gif" alt="Loading..." style="margin-top: 20%; width: 100px; height: 100px;">
     <p>Đang in...</p>
 </div>
-</body>
         <script src="../main.js"></script>
         <script>
-            // Mock data for printer and page setup
-            const printerDetails = {
-                name: 'Your Printer',
-                // Add more printer details as needed
-            };
+            // Lấy thông tin máy in từ sessionStorage
+var storedPrinterInfo = sessionStorage.getItem("selectedPrinter");
+
+if (storedPrinterInfo) {
+    var printerInfo = JSON.parse(storedPrinterInfo);
+
+    // Đặt thông tin vào các phần tử HTML tương ứng
+    document.getElementById("printerID").innerText = "Printer id: " + printerInfo.id;
+    document.getElementById("printerName").innerText = "Printer Name: " + printerInfo.brand;
+    document.getElementById("printerLocation").innerText = "Printer Location: " + printerInfo.campus + " - " + printerInfo.building + " - " + printerInfo.room;
+}
+
+// Xóa thông tin từ sessionStorage sau khi sử dụng
+sessionStorage.removeItem("selectedPrinter");
 
             const pageSetup = {
                 numPages: 1,
@@ -329,6 +390,29 @@
                 marginsSelect.value = pageSetup.margins;
                 pageSizeSelect.value = pageSetup.pageSize;
                 // Update other page setup options as needed
+                // Thêm đoạn mã để lấy giá trị custom margin và áp dụng
+                const customMarginInput = document.getElementById('customMargin');
+                const customMarginValue = customMarginInput.value;
+
+                // Áp dụng custom margin cho các box cần thiết
+                const printerBox = document.querySelector('.printer-box');
+                const pageSetupBox = document.querySelector('.page-setup-box');
+                const instructionBox = document.querySelector('.instruction-box');
+                const reviewBox = document.querySelector('.review-box');
+
+                // Xóa các margin class trước khi thêm mới
+                printerBox.classList.remove('margin-custom');
+                pageSetupBox.classList.remove('margin-custom');
+                instructionBox.classList.remove('margin-custom');
+                reviewBox.classList.remove('margin-custom');
+
+                // Nếu có giá trị custom margin, thêm margin class
+                if (customMarginValue !== '') {
+                    printerBox.classList.add('margin-custom');
+                    pageSetupBox.classList.add('margin-custom');
+                    instructionBox.classList.add('margin-custom');
+                    reviewBox.classList.add('margin-custom');
+                }
             }
 
             // Update additional features box with dynamic data
@@ -351,34 +435,6 @@
     		const box = document.getElementById(boxId);
     		box.classList.toggle('collapsed');
 	    }
-	    // Khi trang được load, hiển thị thông tin lần truy cập gần nhất
-window.onload = function () {
-    displayLastAccessInfo();
-};
-
-// Hàm để hiển thị thông tin lần truy cập gần nhất
-function displayLastAccessInfo() {
-    const lastAccessInfo = getLastAccessInfo();
-    if (lastAccessInfo) {
-        // Hiển thị thông tin trong Printer Box
-        document.getElementById('lastAccessDate').textContent = lastAccessInfo.lastAccessDate;
-    }
-}
-
-// Hàm để lưu thông tin lần truy cập gần nhất vào Local Storage
-function saveLastAccessInfo() {
-    const lastAccessDate = new Date().toLocaleString();
-    
-    const lastAccessInfo = {
-        lastAccessDate,
-    };
-
-    localStorage.setItem('lastAccessInfo', JSON.stringify(lastAccessInfo));
-
-    // Hiển thị lại thông tin lần truy cập gần nhất
-    displayLastAccessInfo();
-}
-
             // Print Document Function
             function printDocument() {
                 // Implement your print functionality here
@@ -387,15 +443,15 @@ function saveLastAccessInfo() {
             }
 
             // Confirm Print Function
-            function confirmPrint() {
-                const userConfirmed = confirm('Bạn chắc chắn muốn in?');
+function confirmPrint() {
+    const userConfirmed = confirm('Bạn chắc chắn muốn in?');
     if (userConfirmed) {
-        // Gọi hàm để chuyển hướng và hiển thị trạng thái loading
-        redirectToSuccessPage();
-    }
-// Thêm vào trong đoạn mã JavaScript của properties.html
-function redirectToSuccessPage() {
-    // Hiển thị trạng thái loading
+        // Check remaining paper count
+        var remainingPaperCount = localStorage.getItem("currentCount");
+
+        if (remainingPaperCount !== null && parseInt(remainingPaperCount) <= 0) {
+            // If paper count is less than or equal to 0, redirect to top_up.html
+               // Hiển thị trạng thái loading
     const loadingOverlay = document.getElementById('loadingOverlay');
     loadingOverlay.style.display = 'block';
 
@@ -405,10 +461,18 @@ function redirectToSuccessPage() {
         loadingOverlay.style.display = 'none';
 
         // Chuyển hướng sang trang success.html
-        window.location.href = 'success.html';
+        window.location.href = 'top_up.html';
     }, 3000); // 2000 milliseconds = 2 seconds
+        } else {
+            // Update my.html with the entered amount
+            updatePrintHtml();
+
+            // Call the function to redirect and show loading status
+            redirectToSuccessPage();
+        }
+    }
 }
-            }
+            
            // Hàm để lấy thông tin tài liệu từ sessionStorage
             function getUploadedFileInfo() {
                 const uploadedFileJson = sessionStorage.getItem('uploadedFile');
@@ -436,6 +500,7 @@ function formatFileSize(bytes) {
         const docNameSpan = document.getElementById('docName');
         const docTypeSpan = document.getElementById('docType');
         const docSizeSpan = document.getElementById('docSize');
+        const totalPageCountSpan = document.getElementById('totalPageCount');
 
         // Hiển thị thông tin tài liệu
         docNameSpan.textContent = `Document Name: ${uploadedFileInfo.name}`;
@@ -444,6 +509,9 @@ function formatFileSize(bytes) {
         // Chuyển đổi và hiển thị dung lượng file
         const formattedSize = formatFileSize(uploadedFileInfo.size);
         docSizeSpan.textContent = `Document Size: ${formattedSize}`;
+        // Lấy giá trị totalPageCount từ sessionStorage và hiển thị
+        const totalPageCount = sessionStorage.getItem('totalPageCount');
+        totalPageCountSpan.textContent = `Total Pages: ${totalPageCount}`;
     }
             }
 
@@ -454,16 +522,19 @@ function formatFileSize(bytes) {
 	
 // Lưu trữ số sao được chọn
 let selectedStar = 0;
-// Thêm vào trong đoạn mã JavaScript của properties.html
 function redirectToSuccessPage() {
-    // Hiển thị trạng thái loading (nếu có)
-    // ... code để hiển thị trạng thái loading
+   // Hiển thị trạng thái loading
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    loadingOverlay.style.display = 'block';
 
     // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
     setTimeout(function () {
+        // Ẩn trạng thái loading
+        loadingOverlay.style.display = 'none';
+
         // Chuyển hướng sang trang success.html
         window.location.href = 'success.html';
-    }, 2000); // 2000 milliseconds = 2 seconds
+    }, 3000); // 2000 milliseconds = 2 seconds
 }
 // Hàm chọn số sao
 function selectStar(star) {
@@ -498,11 +569,20 @@ function confirmReview() {
     // Thông báo thành công
     alert('Đánh giá của bạn đã được gửi thành công!');
 }
+    function updatePrintHtml() {
+      // Get the entered amount
+        const numPagesInput = document.getElementById('numPages');
+        const numPages = parseInt(numPagesInput.value);
+        const totalPageCount = sessionStorage.getItem('totalPageCount');
+        const amount = numPages * parseInt(totalPageCount);
+
+      // Send the amount to my.html using localStorage
+      localStorage.setItem("updateAmount", amount);
+    }
             // Initial update of all boxes
             updatePrinterBox();
             updatePageSetupBox();
 
         </script>
     </body>
-    <script src="../main.js"></script>
 </html>
