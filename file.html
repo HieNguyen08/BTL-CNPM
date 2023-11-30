@@ -178,12 +178,20 @@
                 type: uploadedFile.type,
                 size: uploadedFile.size
             }));
-
+            // Call the function to handle file upload
+            handleFileUpload();
             // Redirect to properties.html
             window.location.href = 'properties.html';
         } else {
             alert('Please select a file to upload!');
         }
+    }
+        function handleFileUpload() {
+        const fileInput = document.getElementById('fileInput');
+        const totalPageCount = 10; // Replace this with the actual logic to get the total number of pages
+
+        // Store total page count in session storage
+        sessionStorage.setItem('totalPageCount', totalPageCount);
     }
 
         // Function to remove a file from the preview

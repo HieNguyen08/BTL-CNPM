@@ -21,7 +21,7 @@
             background-color: #ffff66; /* Màu nền của nút khi di chuột qua */
         }
         .search-highlight {
-            background-color: #ffcc00; /* Màu nền đậm dòng */
+            background-color: #ffcc00; /* Màu nền đậm dng */
             font-weight: bold;
         }
                 .search-container {
@@ -62,12 +62,12 @@
                 <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
             </div>
             <div class="select-dropdown flex" role="listbox" id="select-dropdown">
-                <ul>
+
                 <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
                 <li><a href="log.html">Log</a></li>
                 <li><a href="pay.html">Payment</a></li>
                 <li style="border: none;"><a href="my.html">My Profile</a></li>
-                </ul>
+
             </div>
         </div>
         <div>
@@ -195,12 +195,10 @@
                 </tr>
 	    </table>
         </div>
-        </div>
         <div class="flex center" style="margin-top: 50px;">
                 <div id="kc-form-buttons" class="form-group">
           		<button class="rounded-button" tabindex="4" onclick="selectPrinter()">Select Printer</button>
         		</div>
-                </div>
         </div>
         <footer id="credit">
             <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
@@ -230,6 +228,16 @@
             if (printerStatus === "off") {
                 alert("Bạn cần chọn máy đang hoạt động.");
             } else {
+                    // Lưu thông tin máy in đã chọn vào sessionStorage
+        var printerInfo = {
+            id: selectedPrinter.parentNode.parentNode.cells[1].textContent,
+            brand: selectedPrinter.parentNode.parentNode.cells[2].textContent,
+            campus: selectedPrinter.parentNode.parentNode.cells[5].textContent,
+            building: selectedPrinter.parentNode.parentNode.cells[6].textContent,
+            room: selectedPrinter.parentNode.parentNode.cells[7].textContent
+        };
+
+        sessionStorage.setItem("selectedPrinter", JSON.stringify(printerInfo));
                 // Chuyển đến trang tiếp theo nếu máy in đang hoạt động và cờ cho phép chuyển trang
                 if (allowPageChange) {
                     window.location.href = "file.html";
