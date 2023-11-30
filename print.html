@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="login-pf">
+    <head>
+        <title>Main</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .rounded-button {
+            width: 250px;
+            padding: 20px; /* Thêm padding để tăng kích thước của nút */
+            border-radius: 10px; /* Bo góc */
+            background-color: yellow; /* Màu nền của nút */
+            color: #000000; /* Màu chữ của nút */
+            cursor: pointer;
+            border: none;
+        }
+
+        .rounded-button:hover {
+            background-color: #ffff66; /* Màu nền của nút khi di chuột qua */
+        }
+        .search-highlight {
+            background-color: #ffcc00; /* Màu nền đậm dòng */
+            font-weight: bold;
+        }
+                .search-container {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .search-input {
+            flex: 1;
+        }
+
+        .submit-button {
+            margin-left: 10px;
+        }
+    </style>
+    </head>
+    <body style="overflow-y: auto; height: 100%;">
+        <div class="flex" style="justify-content: space-between;">
+            <div id="name" class="flex center">
+                <a href="main.html"><img src="../logo.png" style="width: 50px;" draggable="false"></a>
+                <p style="padding: 0px 50px">Nguyễn Văn A</p>
+            </div>
+            <a href="../login.html">
+                <div id="kc-form-buttons" class="form-group">
+                    <input tabindex="4" class="logout center" name="logout" id="logout" type="submit" value="LOG OUT" />
+                </div>
+            </a>
+        </div>
+        <div>
+            <div id="menu" class="flex center">
+                <button id="popmenu" onclick="pop()" class="flex" style=" min-height: 2.5rem; min-width: 2.5rem; padding-top: 8px;">
+                    <span class="flex" style="pointer-events: none; justify-content: center;">
+                        <svg style="position: absolute; padding-left: 20px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h12M3 6h18M3 18h6"></path>
+                        </svg>
+                    </span>
+                </button>
+                <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
+            </div>
+            <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+                <ul>
+                <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
+                <li><a href="log.html">Log</a></li>
+                <li><a href="pay.html">Payment</a></li>
+                <li style="border: none;"><a href="my.html">My Profile</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div id="sort" class="flex box no-m center" style="width: fit-content;">
+                <div id="kc-form-buttons">
+                    <input type="search" id="id-hidden-input" class="search-input" name="credentialId" placeholder="Search (by ID)" />
+                    <button class="rounded-button submit-button" onclick="submitSearch()">Submit</button>
+        </div>
+                </div>
+            </div>
+<div style="max-height: 200px; overflow-y: auto; margin-right: -5px;">
+<table style="width: 100%;" border="1" cellspacing="3" bordercolor="blue" bgcolor="white" id="printerTable">
+                <tr>
+                    <th rowspan="2"> </th>
+                    <th rowspan="2">ID</th>
+                    <th rowspan="2">Brand Name</th>
+                    <th rowspan="2">Printer Model</th>
+                    <th rowspan="2">Description</th>
+		    <th colspan="3">Location</th>
+                    <th rowspan="2">Status</th>
+                </tr>
+                <tr>
+                    <th>Campus</th>
+                    <th>Building</th>
+                    <th>Room</th>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer1" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>1</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="on">On</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer2" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>2</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="on">On</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer3" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>3</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="on">On</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer4" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>ID</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="off">Off</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer5" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>ID</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="on">On</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer6" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>ID</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="on">On</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer7" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>ID</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="on">On</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer8" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>ID</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="off">Off</td>
+                </tr>
+		<tr>
+                    <td class="flex"><input type="radio" id="printer9" name="printer" value="1"><label for="printer1"></label></td>
+                    <td>ID</td>
+                    <td>Brand Name</td>
+                    <td>Printer Model</td>
+                    <td>Description</td>
+                    <td>Campus Name</td>
+                    <td>Building Name</td>
+                    <td>Room Number</td>
+                    <td class="off">Off</td>
+                </tr>
+	    </table>
+        </div>
+        </div>
+        <div class="flex center" style="margin-top: 50px;">
+                <div id="kc-form-buttons" class="form-group">
+          		<button class="rounded-button" tabindex="4" onclick="selectPrinter()">Select Printer</button>
+        		</div>
+                </div>
+        </div>
+        <footer id="credit">
+            <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
+            <div style="grid-area: name;" class="center flex"><h1>Student Smart Printing Service</h1></div>
+            <div style="grid-area: website;"><h4><i class="fa fa-globe" style="color: black; padding-right: 5px;"></i>WEBSITE</h4></div>
+            <div style="grid-area: link; padding-left: 10px;" class="flex">SSPS.com</div>
+            <div style="grid-area: contact;"><h4><i class="fa fa-comments" style="color: black; padding-right: 5px;"></i>LIÊN HỆ QUẢN LÝ</h4></div>
+            <div style="grid-area: list;" class="flex"><i class="fa fa-map-marker" style="color: black; padding-right: 5px;"></i>268 Lý Thường Kiệt, P.14, Q.10, TP.HCM<br>(028) 38 651 670 - (028) 28 647 256</div>
+        </footer>
+    
+    <script src="../main.js"></script>
+    <script>
+        var allowPageChange = true;
+
+        function selectPrinter() {
+            // Kiểm tra xem người dùng đã chọn máy in hay chưa
+            var selectedPrinter = document.querySelector('input[name="printer"]:checked');
+
+            if (!selectedPrinter) {
+                alert("Mời bạn vui lòng chọn máy trước khi in.");
+                return;
+            }
+
+            // Kiểm tra trạng thái của máy in (on hoặc off)
+            var printerStatus = selectedPrinter.parentNode.parentNode.cells[8].textContent.toLowerCase();
+
+            if (printerStatus === "off") {
+                alert("Bạn cần chọn máy đang hoạt động.");
+            } else {
+                // Chuyển đến trang tiếp theo nếu máy in đang hoạt động và cờ cho phép chuyển trang
+                if (allowPageChange) {
+                    window.location.href = "file.html";
+                }
+            }
+        }
+
+        // Hàm để kiểm tra và không chuyển trang nếu bấm "OK" trong hộp thoại cảnh báo
+        window.alert = function (message) {
+            allowPageChange = false;
+            setTimeout(function () {
+                allowPageChange = true;
+            }, 500); // Đặt lại cờ sau 0.5 giây
+            return confirm(message);
+        };
+function submitSearch() {
+    searchPrinter();
+    sortTable();
+}
+
+// Hàm để sắp xếp bảng dựa trên kết quả tìm kiếm
+function sortTable() {
+    var printerTable = document.getElementById("printerTable");
+    var rows = Array.from(printerTable.rows).slice(1); // Lấy các dòng, bỏ qua dòng header
+
+    var hasMatches = false;
+
+    rows.forEach(function (row) {
+        if (row.classList.contains("search-highlight")) {
+            hasMatches = true;
+        }
+    });
+
+    if (!hasMatches) {
+        alert("Không tìm thấy ID trùng khớp.");
+        return;
+    }
+
+    rows.sort(function (a, b) {
+        var hasMatchA = a.classList.contains("search-highlight");
+        var hasMatchB = b.classList.contains("search-highlight");
+
+        if (hasMatchA && !hasMatchB) {
+            return -1; // Nếu A có kết quả trùng khớp, đưa A lên trên
+        } else if (!hasMatchA && hasMatchB) {
+            return 1; // Nếu B có kết quả trùng khớp, đưa B lên trên
+        } else {
+            return 0; // Nếu cả A và B đều không có kết quả trùng khớp, giữ nguyên thứ tự
+        }
+    });
+
+    // Xóa tất cả các dòng trong bảng
+    for (var i = 0; i < rows.length; i++) {
+        printerTable.appendChild(rows[i]);
+    }
+}
+
+// Hàm để xử lý sự kiện khi nhấn nút Submit
+function submitSearch() {
+    searchPrinter();
+    sortTable();
+}
+
+// Hàm tìm kiếm máy in
+function searchPrinter() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("id-hidden-input");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("printerTable");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 1; i < tr.length; i++) { // Bắt đầu từ 1 để bỏ qua dòng header
+        td = tr[i].getElementsByTagName("td")[1]; // Chỉ tìm kiếm theo cột ID
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].classList.add("search-highlight");
+            } else {
+                tr[i].classList.remove("search-highlight");
+            }
+        }
+    }
+}
+    </script>
+
+</body>
+</html>
