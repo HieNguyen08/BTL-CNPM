@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./report-for-this-month.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Abel:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM Plex Serif:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="report-for-this-month">
+      <img
+        class="email-icon14"
+        alt=""
+        src="./public/email1.svg"
+        data-scroll-to="email1"
+        id="email1"
+      />
+
+      <img
+        class="email-icon15"
+        alt=""
+        src="./public/email.svg"
+        data-scroll-to="email"
+        id="email"
+      />
+
+      <div class="option23" data-scroll-to="optionText">This Month</div>
+      <img class="email-icon16" alt="" src="./public/email4.svg" />
+
+      <img class="email-icon17" alt="" src="./public/email3.svg" />
+
+      <img class="email-icon18" alt="" src="./public/email3.svg" />
+
+      <img class="email-icon19" alt="" src="./public/email4.svg" />
+
+      <img class="image-17-icon" alt="" src="./public/image-17@2x.png" />
+
+      <img class="email-icon20" alt="" src="./public/email5.svg" />
+
+      <img class="menu-fill-icon1" alt="" src="./public/menufill.svg" />
+
+      <div class="option24">Menu of service</div>
+      <img class="email-icon21" alt="" src="./public/email6.svg" id="email7" />
+
+      <img class="email-icon22" alt="" src="./public/email7.svg" id="email8" />
+
+      <img class="email-icon23" alt="" src="./public/email7.svg" id="email9" />
+
+      <img class="email-icon24" alt="" src="./public/email6.svg" id="email10" />
+
+      <img class="email-icon25" alt="" src="./public/email8.svg" id="email11" />
+
+      <div class="log-out2">LOG OUT</div>
+      <div class="login1" id="login"></div>
+      <b class="log-out3">LOG OUT</b>
+      <img class="email-icon26" alt="" src="./public/email9.svg" />
+
+      <img class="ssps-1-21" alt="" src="./public/ssps-1-2@2x.png" />
+
+      <img
+        class="report-for-this-month-child"
+        alt=""
+        src="./public/vector-72.svg"
+      />
+
+      <img class="email-icon27" alt="" src="./public/email10.svg" />
+
+      <b class="option25">Student Smart Printing Service</b>
+      <b class="option26">WEBSITE</b>
+      <b class="option27">LIÊN HỆ QUẢN LÝ </b>
+      <div class="option28">268 Lý Thường Kiệt, P.14, Q.10, TP.HCM</div>
+      <div class="option29">SSPS.com</div>
+      <div class="option30">(028) 38 651 670 - (028) 28 647 256</div>
+      <img
+        class="streamlinehq-programming-web-icon1"
+        alt=""
+        src="./public/streamlinehqprogrammingweb----------line48ico-nle2kwprhwzixytv.svg"
+      />
+
+      <img
+        class="streamlinehq-mail-chat-two-bub-icon1"
+        alt=""
+        src="./public/streamlinehqmailchattwobubblesoval----------line48ico-uczmzai0xe4saq2i.svg"
+      />
+
+      <img
+        class="streamlinehq-travel-map-locati-icon1"
+        alt=""
+        src="./public/streamlinehqtravelmaplocationpin3----------line48ico-ifliupwfmw6szq2t.svg"
+      />
+
+      <img class="ssps-3-11" alt="" src="./public/ssps-3-1@2x.png" />
+
+      <div class="option31">Manage Student</div>
+      <div class="option32">Nguyễn Văn A</div>
+      <div class="option33">View Log</div>
+      <div class="option34">Manage Printer</div>
+      <div class="option35">Configure System</div>
+      <div class="option36" id="optionText13">Report</div>
+      <div class="option37">This Year</div>
+      <div class="option38">Total User</div>
+      <div class="option39">
+        <span class="option-txt1">
+          <p class="average-login1">Average Login</p>
+          <p class="average-login1">Per Day</p>
+        </span>
+      </div>
+      <div class="option40">100</div>
+      <div class="option41">39</div>
+      <div class="option42">Total Usage</div>
+      <div class="option43">1000</div>
+      <div class="option44">Time</div>
+      <div class="option45">T11/ 2023</div>
+    </div>
+
+    <script>
+      var email1 = document.getElementById("email1");
+      if (email1) {
+        email1.addEventListener("click", function (e) {
+          window.location.href = "./report-for-year.html";
+        });
+      }
+      
+      var email = document.getElementById("email");
+      if (email) {
+        email.addEventListener("click", function () {
+          var anchor = document.querySelector("[data-scroll-to='email1']");
+          if (anchor) {
+            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+          }
+        });
+      }
+      
+      var email7 = document.getElementById("email7");
+      if (email7) {
+        email7.addEventListener("click", function (e) {
+          window.location.href = "./manage-student.html";
+        });
+      }
+      
+      var email8 = document.getElementById("email8");
+      if (email8) {
+        email8.addEventListener("click", function (e) {
+          window.location.href = "./log-student.html";
+        });
+      }
+      
+      var email9 = document.getElementById("email9");
+      if (email9) {
+        email9.addEventListener("click", function (e) {
+          window.location.href = "./configure-system.html";
+        });
+      }
+      
+      var email10 = document.getElementById("email10");
+      if (email10) {
+        email10.addEventListener("click", function () {
+          var anchor = document.querySelector("[data-scroll-to='optionText']");
+          if (anchor) {
+            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+          }
+        });
+      }
+      
+      var email11 = document.getElementById("email11");
+      if (email11) {
+        email11.addEventListener("click", function (e) {
+          window.location.href = "./manage-printer.html";
+        });
+      }
+      
+      var login = document.getElementById("login");
+      if (login) {
+        login.addEventListener("click", function (e) {
+          window.location.href = "./login.html";
+        });
+      }
+      
+      var optionText13 = document.getElementById("optionText13");
+      if (optionText13) {
+        optionText13.addEventListener("click", function () {
+          var anchor = document.querySelector("[data-scroll-to='email']");
+          if (anchor) {
+            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+          }
+        });
+      }
+      </script>
+  </body>
+</html>

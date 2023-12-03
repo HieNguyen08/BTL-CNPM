@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Abel:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM Plex Serif:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="login95">
+      <div class="login-child"></div>
+      <div class="option631">Securitied by HCMUT-SSO system</div>
+      <img class="email-icon546" alt="" src="./public/email88@2x.png" />
+
+      <b class="student-smart-printing-container">
+        <p class="student-smart-printing">Student Smart Printing Service</p>
+        <p class="student-smart-printing">(SSPS)</p>
+      </b>
+      <div class="who-are-you">Who are you?</div>
+      <div class="password" id="password"></div>
+      <div class="password-text">Admin</div>
+      <img
+        class="password-icon"
+        alt=""
+        src="./public/password.svg"
+        id="password1"
+      />
+
+      <div class="password-text1">Student</div>
+    </div>
+
+    <script>
+      var password = document.getElementById("password");
+      if (password) {
+        password.addEventListener("click", function (e) {
+          window.location.href = "./main-screen-s-p-s-o.html";
+        });
+      }
+      
+      var password1 = document.getElementById("password1");
+      if (password1) {
+        password1.addEventListener("click", function (e) {
+          // Please sync "Main screen Student" to the project
+        });
+      }
+      </script>
+  </body>
+</html>

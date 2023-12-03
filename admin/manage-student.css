@@ -1,0 +1,734 @@
+.email-icon58 {
+  position: absolute;
+  top: 62.7px;
+  left: 0;
+  width: 1440px;
+  height: 71px;
+}
+.option142 {
+  position: absolute;
+  width: 10%;
+  top: 7.62%;
+  left: 43.82%;
+  font-size: var(--font-size-xl);
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.email-icon59 {
+  position: absolute;
+  top: 125.7px;
+  left: 0;
+  width: 290.6px;
+  height: 71px;
+}
+.option143 {
+  position: absolute;
+  width: 12.43%;
+  top: 13.94%;
+  left: 2.61%;
+  font-size: var(--font-size-xl);
+  line-height: 32px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.email-icon60 {
+  position: absolute;
+  top: 125.7px;
+  left: 282.6px;
+  width: 297px;
+  height: 71px;
+  cursor: pointer;
+}
+.option144 {
+  position: absolute;
+  width: 12.5%;
+  top: 14.03%;
+  left: 22.61%;
+  font-size: var(--font-size-xl);
+  line-height: 32px;
+  color: var(--white);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  mix-blend-mode: exclusion;
+}
+.email-icon61 {
+  position: absolute;
+  top: 125.7px;
+  left: 859.6px;
+  width: 297px;
+  height: 71px;
+  cursor: pointer;
+}
+.option145 {
+  position: absolute;
+  width: 12.5%;
+  top: 14.03%;
+  left: 62.61%;
+  font-size: var(--font-size-xl);
+  line-height: 32px;
+  color: var(--white);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  mix-blend-mode: exclusion;
+}
+.email-icon62 {
+  position: absolute;
+  top: 125.7px;
+  left: 1148.6px;
+  width: 291.4px;
+  height: 71px;
+  cursor: pointer;
+}
+.option146 {
+  position: absolute;
+  width: 12.5%;
+  top: 14.03%;
+  left: 82.61%;
+  font-size: var(--font-size-xl);
+  line-height: 32px;
+  color: var(--white);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  mix-blend-mode: exclusion;
+}
+.email-icon63 {
+  position: absolute;
+  top: 125.7px;
+  left: 571.6px;
+  width: 296px;
+  height: 71px;
+  cursor: pointer;
+}
+.log-out10,
+.option147 {
+  position: absolute;
+  font-size: var(--font-size-xl);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+}
+.option147 {
+  width: 12.57%;
+  top: 14.03%;
+  left: 42.54%;
+  line-height: 32px;
+  text-align: left;
+  mix-blend-mode: exclusion;
+}
+.log-out10 {
+  top: 13.8px;
+  left: 1187px;
+  font-family: var(--font-inter);
+  justify-content: center;
+  width: 217px;
+  height: 24px;
+}
+.login17 {
+  position: absolute;
+  top: -1.2px;
+  left: 1250px;
+  border-radius: var(--br-mini);
+  background-color: var(--color-darkturquoise);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-silver-200);
+  box-sizing: border-box;
+  width: 190px;
+  height: 62px;
+  cursor: pointer;
+}
+.log-out11 {
+  position: absolute;
+  top: 18.8px;
+  left: calc(50% + 589px);
+  display: inline-block;
+  font-family: var(--font-inter);
+  width: 89px;
+  height: 30px;
+}
+.email-icon64 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 314px;
+  height: 69.8px;
+}
+.option148 {
+  position: absolute;
+  width: 6.32%;
+  top: 1.54%;
+  left: 9.38%;
+  line-height: 32px;
+  font-family: var(--font-abel);
+  color: var(--white);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  mix-blend-mode: exclusion;
+}
+.email-icon65,
+.ssps-1-12 {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 62px;
+  height: 62px;
+  object-fit: cover;
+}
+.email-icon65 {
+  top: 247px;
+  left: 852px;
+  width: 505px;
+  height: 514px;
+}
+.email-icon66,
+.manage-student-child {
+  position: absolute;
+  top: 862px;
+  left: 13.9px;
+  width: 3px;
+  height: 6.4px;
+}
+.email-icon66 {
+  top: 383px;
+  left: 886px;
+  width: 445px;
+  height: 69px;
+}
+.email-icon67,
+.email-icon68 {
+  position: absolute;
+  top: 278px;
+  left: 34px;
+  width: 123px;
+  height: 56px;
+}
+.email-icon68 {
+  top: 324px;
+  height: 52px;
+}
+.div10,
+.number {
+  position: absolute;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.div10 {
+  top: 337px;
+  left: 61px;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.number {
+  top: 286px;
+  left: 70px;
+  text-align: left;
+  width: 63px;
+  height: 31px;
+}
+.email-icon69,
+.email-icon70,
+.email-icon71 {
+  position: absolute;
+  top: 278px;
+  left: 149px;
+  width: 316.5px;
+  height: 56px;
+}
+.email-icon70,
+.email-icon71 {
+  top: 324px;
+  width: 316px;
+  height: 52px;
+}
+.email-icon71 {
+  top: 368px;
+  width: 316.5px;
+  height: 56px;
+}
+.email-icon72,
+.email-icon73,
+.email-icon74 {
+  position: absolute;
+  top: 416px;
+  left: 149px;
+  width: 316px;
+  height: 52px;
+}
+.email-icon73,
+.email-icon74 {
+  top: 460px;
+  width: 316.5px;
+  height: 56px;
+}
+.email-icon74 {
+  top: 508px;
+  width: 316px;
+  height: 52px;
+}
+.email-icon75,
+.email-icon76,
+.email-icon77 {
+  position: absolute;
+  top: 552px;
+  left: 149px;
+  width: 316.5px;
+  height: 56px;
+}
+.email-icon76,
+.email-icon77 {
+  top: 600px;
+  width: 316px;
+  height: 52px;
+}
+.email-icon77 {
+  top: 644px;
+  width: 316.5px;
+  height: 56px;
+}
+.email-icon78,
+.number-of-usage {
+  position: absolute;
+  top: 278px;
+  left: 457px;
+  width: 163px;
+  height: 56px;
+}
+.number-of-usage {
+  top: 286px;
+  left: 476px;
+  line-height: 32px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 153px;
+  height: 31px;
+}
+.email-icon79,
+.email-icon80,
+.email-icon81 {
+  position: absolute;
+  top: 326px;
+  left: 457px;
+  width: 163px;
+  height: 52px;
+}
+.email-icon80,
+.email-icon81 {
+  top: 368px;
+  height: 56px;
+}
+.email-icon81 {
+  top: 416px;
+  height: 52px;
+}
+.email-icon82,
+.email-icon83,
+.email-icon84 {
+  position: absolute;
+  top: 460px;
+  left: 457px;
+  width: 163px;
+  height: 56px;
+}
+.email-icon83,
+.email-icon84 {
+  top: 508px;
+  height: 52px;
+}
+.email-icon84 {
+  top: 552px;
+  height: 56px;
+}
+.email-icon85,
+.email-icon86,
+.email-icon87,
+.time-using {
+  position: absolute;
+  top: 600px;
+  left: 457px;
+  width: 163px;
+  height: 52px;
+}
+.email-icon86,
+.email-icon87,
+.time-using {
+  top: 644px;
+  height: 56px;
+}
+.email-icon87,
+.time-using {
+  top: 278px;
+  left: 609px;
+}
+.time-using {
+  top: 286px;
+  left: 636px;
+  line-height: 32px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 153px;
+  height: 31px;
+}
+.email-icon88,
+.email-icon89 {
+  position: absolute;
+  top: 326px;
+  left: 609px;
+  width: 163px;
+  height: 52px;
+}
+.email-icon89 {
+  top: 368px;
+  height: 56px;
+}
+.email-icon90,
+.email-icon91,
+.email-icon92 {
+  position: absolute;
+  top: 416px;
+  left: 609px;
+  width: 163px;
+  height: 52px;
+}
+.email-icon91,
+.email-icon92 {
+  top: 460px;
+  height: 56px;
+}
+.email-icon92 {
+  top: 508px;
+  height: 52px;
+}
+.email-icon93,
+.email-icon94,
+.email-icon95 {
+  position: absolute;
+  top: 552px;
+  left: 609px;
+  width: 163px;
+  height: 56px;
+}
+.email-icon94,
+.email-icon95 {
+  top: 600px;
+  height: 52px;
+}
+.email-icon95 {
+  top: 644px;
+  height: 56px;
+}
+.name,
+.number1 {
+  position: absolute;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.name {
+  top: 286px;
+  left: 287px;
+  text-align: left;
+  width: 63px;
+  height: 31px;
+}
+.number1 {
+  top: 383px;
+  left: 67px;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.email-icon96 {
+  position: absolute;
+  top: 368px;
+  left: 34px;
+  width: 123px;
+  height: 56px;
+}
+.email-icon97,
+.email-icon98 {
+  position: absolute;
+  top: 547px;
+  left: 886px;
+  width: 445px;
+  height: 69px;
+}
+.email-icon98 {
+  top: 466px;
+}
+.email-text,
+.email-text1,
+.email-text2 {
+  position: absolute;
+  top: 405px;
+  left: 926px;
+  font-weight: 600;
+  font-family: var(--font-inter);
+  text-align: left;
+  display: inline-block;
+  width: 117px;
+  height: 22px;
+}
+.email-text1,
+.email-text2 {
+  top: 490px;
+  width: 103px;
+  height: 21px;
+}
+.email-text2 {
+  top: 563px;
+  left: 927px;
+  width: 88px;
+  height: 20px;
+}
+.div11 {
+  position: absolute;
+  top: 385px;
+  left: 61px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.div12,
+.email-icon99,
+.number2 {
+  position: absolute;
+  top: 416px;
+  left: 34px;
+  width: 123px;
+  height: 52px;
+}
+.div12,
+.number2 {
+  top: 429px;
+  left: 61px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.number2 {
+  top: 475px;
+  left: 67px;
+}
+.div13,
+.email-icon100 {
+  position: absolute;
+  top: 460px;
+  left: 34px;
+  width: 123px;
+  height: 56px;
+}
+.div13 {
+  top: 477px;
+  left: 61px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.div14,
+.email-icon101,
+.number3 {
+  position: absolute;
+  top: 508px;
+  left: 34px;
+  width: 123px;
+  height: 52px;
+}
+.div14,
+.number3 {
+  top: 521px;
+  left: 61px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.number3 {
+  top: 567px;
+  left: 67px;
+}
+.div15,
+.email-icon102 {
+  position: absolute;
+  top: 552px;
+  left: 34px;
+  width: 123px;
+  height: 56px;
+}
+.div15 {
+  top: 569px;
+  left: 61px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.div16,
+.email-icon103,
+.number4 {
+  position: absolute;
+  top: 600px;
+  left: 34px;
+  width: 123px;
+  height: 52px;
+}
+.div16,
+.number4 {
+  top: 613px;
+  left: 61px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.number4 {
+  top: 659px;
+  left: 67px;
+}
+.div17,
+.email-icon104 {
+  position: absolute;
+  top: 644px;
+  left: 34px;
+  width: 123px;
+  height: 56px;
+}
+.div17 {
+  top: 661px;
+  left: 61px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 13px;
+}
+.email-icon105 {
+  position: absolute;
+  top: 861px;
+  left: 0;
+  width: 1440px;
+  height: 163px;
+}
+.option149,
+.option150,
+.option151 {
+  position: absolute;
+  height: 6.45%;
+  width: 20.49%;
+  top: 87.5%;
+  left: 10.14%;
+  font-size: var(--font-size-5xl);
+  line-height: 32px;
+  display: flex;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.option150,
+.option151 {
+  height: 3.22%;
+  left: 33.61%;
+}
+.option151 {
+  left: 61.81%;
+}
+.option152 {
+  top: 91.41%;
+  left: 62.29%;
+  justify-content: center;
+}
+.option152,
+.option153,
+.option154 {
+  position: absolute;
+  height: 3.22%;
+  width: 30.49%;
+  font-size: var(--font-size-xl);
+  line-height: 32px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.option153 {
+  top: 91.7%;
+  left: 28.26%;
+  justify-content: center;
+}
+.option154 {
+  top: 94.63%;
+  left: 65.35%;
+  text-align: left;
+}
+.streamlinehq-programming-web-icon5 {
+  position: absolute;
+  top: 898px;
+  left: 540px;
+  width: 29px;
+  height: 29px;
+  overflow: hidden;
+}
+.streamlinehq-mail-chat-two-bub-icon5 {
+  position: absolute;
+  top: 903px;
+  left: 896px;
+  width: 23px;
+  height: 24px;
+  overflow: hidden;
+}
+.streamlinehq-travel-map-locati-icon5 {
+  position: absolute;
+  top: 940px;
+  left: 895px;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+.ssps-3-2 {
+  position: absolute;
+  top: 880px;
+  left: 46px;
+  width: 96px;
+  height: 98px;
+  object-fit: cover;
+}
+.manage-student {
+  position: relative;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  background-image: url(./public/newBG.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
