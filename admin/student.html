@@ -38,14 +38,219 @@
                 <li style="border: none;"><a href="report.html">Reports</a></li>
             </div>
         </div>
-        <div class="flex center flex-column">
-            <div>
-                <div style="font-size: 5rem; font-weight: 600; grid-area: logo;">Who care about these</div>
-            </div>
-            <div>
-                <img src="../HCMCUT.svg" style="width: 400px;" draggable="false">
-            </div>
+        
+        <style>
+            body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 20px;
+            }
+        
+            h1 {
+              text-align: center;
+            }
+        
+            .student-list {
+              width: 45%;
+              float: left;
+              
+            }
+        
+            .student-list ul {
+                display: inline-block;
+              list-style: none;
+              padding: 0;
+            }
+        
+            .student-list li {
+             display: inline-block; 
+            cursor: pointer;
+              padding: 8px;
+            }
+        
+            .student-list li:hover {
+              background-color: #f0f0f0;
+            }
+        
+            .student-info {
+              width: 300px;
+              border-collapse: collapse;
+              float: right;
+              
+              
+              
+              padding-left: 20px;
+            }
+            table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+    
+
+    tr:hover {
+      background-color: blue;
+    }
+    .a{
+        display: flex;
+    }
+    .blank{
+        width: 200px;
+    }
+    .bl{
+        height: 80px;
+    }
+            
+          </style>
+        </head>
+        <body>
+          <div class ="bl"></div>
+          <div class = "a">
+          <div class="student-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Name</th>
+                        <th>Number of usage</th>
+                        <th>Time using</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick = "showStudentInfo(1)">
+                        <td>1</td>
+                        <td>Ma Minh Hoàng</td>
+                        <td>1</td>
+                        <td>01/01/2023</td>
+                    </tr>
+                    <tr onclick = "showStudentInfo(2)">
+                        <td>2</td>
+                        <td>Nguyễn Minh Hiếu</td>
+                        <td>1</td>
+                        <td>01/02/2023</td>
+                    </tr>
+                    <tr onclick = "showStudentInfo(3)">
+                        <td>3</td>
+                        <td>Bùi Hoàng Quang Huy</td>
+                        <td>1</td>
+                        <td>01/03/2023</td>
+                    </tr>
+                    <tr onclick = "showStudentInfo(4)">
+                        <td>4</td>
+                        <td>Bùi Trần Minh Khang</td>
+                        <td>1</td>
+                        <td>01/04/2023</td>
+                    </tr>
+                    <tr onclick = "showStudentInfo(5)">
+                        <td>5</td>
+                        <td>Nguyễn Tuấn Khôi Nguyên</td>
+                        <td>1</td>
+                        <td>01/05/2023</td>
+                    </tr>
+                    <tr onclick = "showStudentInfo(6)">
+                        <td>6</td>
+                        <td>Hồng Anh Quân</td>
+                        <td>1</td>
+                        <td>01/06/2023</td>
+                    </tr>
+                    <tr onclick = "showStudentInfo(7)">
+                        <td>7</td>
+                        <td>Trần Hữu Vinh</td>
+                        <td>1</td>
+                        <td>01/07/2023</td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+          <div class = "blank"></div>
+          <div class="student-info" id="student-info">
+            <!-- Student information will be displayed here -->
+          </div>
         </div>
+        
+          <script>
+            function showStudentInfo(studentId) {
+              const studentInfo = document.getElementById('student-info');
+              studentInfo.innerHTML = '';
+        
+              if (studentId === 1) {
+                studentInfo.innerHTML = `
+                  <h2>Ma Minh Hoàng</h2>
+                  <p><strong>Birthday:</strong> 01/01/2003</p>
+                  <p><strong>Student ID:</strong> 22</p>
+                  <p><strong>Class:</strong> CN21KHM1</p>
+                  <!-- Add more student details as needed -->
+                `;
+                studentInfo.style.backgroundColor = '#f5f5f5';
+              } else if (studentId === 2) {
+                studentInfo.innerHTML = `
+                  <h2>Nguyễn Minh Hiếu</h2>
+                  <p><strong>Birthday:</strong> 01/01/2003</p>
+                  <p><strong>Student ID:</strong> 22</p>
+                  <p><strong>Class:</strong> CN21KHM1</p>
+                  <!-- Add more student details as needed -->
+                `;
+                studentInfo.style.backgroundColor = '#f5f5f5';
+              } else if (studentId === 3) {
+                studentInfo.innerHTML = `
+                  <h2>Bùi Hoàng Quang Huy</h2>
+                  <p><strong>Birthday:</strong> 01/01/2003</p>
+                  <p><strong>Student ID:</strong> 22</p>
+                  <p><strong>Class:</strong> CN21KHM1</p>
+                  <!-- Add more student details as needed -->
+                `;
+                studentInfo.style.backgroundColor = '#f5f5f5';
+              } else if (studentId === 4) {
+                studentInfo.innerHTML = `
+                  <h2>Bùi Trần Minh Khang</h2>
+                  <p><strong>Birthday:</strong> 01/01/2003</p>
+                  <p><strong>Student ID:</strong> 22</p>
+                  <p><strong>Class:</strong> CN21KHM1</p>
+                  <!-- Add more student details as needed -->
+                `;
+                studentInfo.style.backgroundColor = '#f5f5f5';
+              } else if (studentId === 5) {
+                studentInfo.innerHTML = `
+                  <h2>Nguyễn Tuấn Khôi Nguyên</h2>
+                  <p><strong>Birthday:</strong> 01/01/2003</p>
+                  <p><strong>Student ID:</strong> 22</p>
+                  <p><strong>Class:</strong> CN21KHM1</p>
+                  <!-- Add more student details as needed -->
+                `;
+                studentInfo.style.backgroundColor = '#f5f5f5';
+              } else if (studentId === 6) {
+                studentInfo.innerHTML = `
+                  <h2>Hồng Anh Quân</h2>
+                  <p><strong>Birthday:</strong> 01/01/2003</p>
+                  <p><strong>Student ID:</strong> 22</p>
+                  <p><strong>Class:</strong> CN21KHM1</p>
+                  <!-- Add more student details as needed -->
+                `;
+                studentInfo.style.backgroundColor = '#f5f5f5';
+              } else if (studentId === 7) {
+                studentInfo.innerHTML = `
+                  <h2>Trần Hữu Vinh</h2>
+                  <p><strong>Birthday:</strong> 01/01/2003</p>
+                  <p><strong>Student ID:</strong> 22</p>
+                  <p><strong>Class:</strong> CN21KHM1</p>
+                  <!-- Add more student details as needed -->
+                `;
+                studentInfo.style.backgroundColor = '#f5f5f5';
+              }
+              // Add more if conditions for additional students
+            }
+          </script>
+        </body>
         <footer id="credit">
             <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
             <div style="grid-area: name;" class="center flex"><h1>Student Smart Printing Service</h1></div>
