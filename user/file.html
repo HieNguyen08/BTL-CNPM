@@ -2,6 +2,7 @@
 <html class="login-pf">
     <head>
         <title>Main</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="../style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,7 +13,7 @@
             border: 2px dashed #ccc;
             padding: 20px;
             cursor: pointer;
-            max-width: 300px;
+            max-width: 80%;
             margin: 0 auto;
             border-radius: 10px;
             position: relative; /* Ensure position is relative */
@@ -166,16 +167,32 @@
         });
 
         // Function to handle file upload
-        function uploadFile() {
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length > 0) {
-                // Perform the upload logic here
-                alert('File uploaded successfully!');
-                // You can add AJAX or fetch logic here to send the file to the server
-            } else {
-                alert('Please select a file to upload.');
-            }
+    function uploadFile() {
+        const fileInput = document.getElementById('fileInput');
+        if (fileInput.files.length > 0) {
+            const uploadedFile = fileInput.files[0];
+            
+            // Store file information in session storage
+            sessionStorage.setItem('uploadedFile', JSON.stringify({
+                name: uploadedFile.name,
+                type: uploadedFile.type,
+                size: uploadedFile.size
+            }));
+            // Call the function to handle file upload
+            handleFileUpload();
+            // Redirect to properties.html
+            window.location.href = 'properties.html';
+        } else {
+            alert('Please select a file to upload!');
         }
+    }
+        function handleFileUpload() {
+        const fileInput = document.getElementById('fileInput');
+        const totalPageCount = 10; // Replace this with the actual logic to get the total number of pages
+
+        // Store total page count in session storage
+        sessionStorage.setItem('totalPageCount', totalPageCount);
+    }
 
         // Function to remove a file from the preview
         function removeFile(element) {

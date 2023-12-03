@@ -2,6 +2,7 @@
 <html class="login-pf">
     <head>
         <title>Main</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="../style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,10 +32,12 @@
                 <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
             </div>
             <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+
                 <li><a href="print.html">Print</a></li>
                 <li><a href="log.html">Log</a></li>
                 <li><a href="pay.html">Payment</a></li>
                 <li style="border: none; border-top-right-radius: 3px; border-bottom-right-radius: 3px;" class="selected"><a href="my.html">My Profile</a></li>
+
             </div>
         </div>
         <div class="flex center flex-column" style="height: 100%;">
@@ -57,9 +60,7 @@
                 <div style="padding-right: 20px; grid-area: left;">Address:</div>
                 <div style="grid-area: right;">Đường số 13,Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh</div>
             </div>
-            <div class="flex box" style="width: 500px">
-                <div style="padding-right: 20px;">You have <span id="totalPaper">0</span> paper (A4) left</div>
-            </div>
+            <div class="flex box" style="width: 500px" id="paperLeft">You have 100 paper left</div>
         </div>
         <footer id="credit">
             <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
@@ -69,20 +70,24 @@
             <div style="grid-area: contact;"><h4><i class="fa fa-comments" style="color: black; padding-right: 5px;"></i>LIÊN HỆ QUẢN LÝ</h4></div>
             <div style="grid-area: list;" class="flex"><i class="fa fa-map-marker" style="color: black; padding-right: 5px;"></i>268 Lý Thường Kiệt, P.14, Q.10, TP.HCM<br>(028) 38 651 670 - (028) 28 647 256</div>
         </footer>
+  <script>
+  // Get the updated amount from localStorage
+  var updateAmount = localStorage.getItem("updateAmount");
+
+  // Update the paper count
+  if (updateAmount !== null) {
+    var currentCount = localStorage.getItem("currentCount") || 100; // Default value is 100
+
+    var newCount = currentCount - parseInt(updateAmount);
+    // Ensure the new count is not less than 0
+    newCount = Math.max(newCount, 0);
+
+    document.getElementById("paperLeft").innerHTML = "You have " + newCount + " paper left";
+
+    // Store the updated count back into localStorage
+    localStorage.setItem("currentCount", newCount);
+  }
+  </script>
     </body>
     <script src="../main.js"></script>
-    <script>
-        // Function to update totalPaper on the page
-        function updateTotalPaperOnPage() {
-            var totalPaperElement = document.getElementById('totalPaper');
-            if (totalPaperElement) {
-                // Get totalPaper from Local Storage or set it to 0 if not present
-                var totalPaper = parseInt(localStorage.getItem('totalPaper')) || 30;
-                totalPaperElement.innerText = totalPaper;
-            }
-        }
-    
-        // Call the function when the page is loaded
-        window.onload = updateTotalPaperOnPage;
-    </script>
 </html>

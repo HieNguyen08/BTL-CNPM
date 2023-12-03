@@ -2,9 +2,49 @@
 <html class="login-pf">
     <head>
         <title>Main</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="../style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <style>
+            body {
+                overflow-y: auto;
+                height: 100%;
+                margin: 0; /* Đảm bảo không có margin mặc định */
+            }
+
+            .flex {
+                display: flex;
+            }
+
+            .justify-center {
+                justify-content: center;
+            }
+
+            .align-center {
+                align-items: center;
+            }
+
+            .error-box {
+                position: absolute; /* Thiết lập vị trí tuyệt đối cho error-box */
+                top: 50%; /* Đưa error-box lên giữa theo chiều cao của body */
+                left: 50%; /* Đưa error-box về giữa theo chiều rộng của body */
+                transform: translate(-50%, -50%); /* Dịch chuyển error-box để nó nằm chính giữa trang */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0px;
+                max-width: 1000px;
+                background-color: white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng */
+                z-index: 1; /* Thiết lập z-index để error-box hiển thị trước các phần tử khác */
+            }
+
+            footer {
+                margin-top: 20px; /* Khoảng cách giữa error-box và footer */
+            }
+        </style>
     </head>
     <body style="overflow-y: auto; height: 100%;">
         <div class="flex" style="justify-content: space-between;">
@@ -31,13 +71,15 @@
                 <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
             </div>
             <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+
                 <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
                 <li><a href="log.html">Log</a></li>
                 <li><a href="pay.html">Payment</a></li>
                 <li style="border: none;"><a href="my.html">My Profile</a></li>
+
             </div>
         </div>
-        <div class="flex-column center error">
+        <div class="error-box justify-center align-center">
             <div class="notice">
                 <div class="flex center bold">
                     Insufficient paper
@@ -53,11 +95,11 @@
                 <div onclick="history.back()">
                     <div id="kc-form-buttons" class="form-group">
                         <input type="hidden" id="id-hidden-input" name="credentialId" />
-                        <input style="width: 30em;" tabindex="4" class="retry center" name="logout" id="logout" type="submit" value="Click here to continue again"/>
+                        <input style="width: 20em;" tabindex="4" class="retry center" name="logout" id="logout" type="submit" value="Click here to continue again"/>
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
         <footer id="credit">
             <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
             <div style="grid-area: name;" class="center flex"><h1>Student Smart Printing Service</h1></div>
