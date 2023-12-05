@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-roboto: Roboto;
+  --font-inter: Inter;
+  --font-abel: Abel;
+  --font-ibm-plex-serif: "IBM Plex Serif";
+
+  /* font sizes */
+  --font-size-xl: 20px;
+  --font-size-5xl: 24px;
+  --font-size-base: 16px;
+  --font-size-lgi: 19px;
+  --font-size-mid: 17px;
+
+  /* Colors */
+  --color-black: #000;
+  --white: #fff;
+  --color-darkturquoise: #48e7f1;
+  --color-silver-100: #b0bcb4;
+  --color-silver-200: rgba(177, 187, 179, 0.9);
+  --color-darkgray: rgba(187, 177, 177, 0.9);
+  --color-gray-100: #848c86;
+  --color-gray-200: rgba(255, 255, 255, 0.93);
+  --color-whitesmoke: #eef2f5;
+  --color-red-100: #ff0000;
+  --color-red-200: rgba(252, 23, 23, 0.93);
+  --color-limegreen: #5af64c;
+  --color-tomato: #ef5353;
+  --color-gainsboro: #d9d9d9;
+
+  /* Border radiuses */
+  --br-mini: 15px;
+}

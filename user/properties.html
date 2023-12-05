@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html class="login-pf">
+<head>
+    <title>Main</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+/* Các box chính */
+.printer-box,
+.page-setup-box,
+.instruction-box,
+.review-box {
+    width: 300px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Tăng bo tròn góc */
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng */
+}
+
+/* Nút in */
+.print-button {
+    background-color: #5AF64C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+    background-color: #4aa63e;
+}
+
+.star {
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.star:hover {
+    color: gold;
+}
+
+.instruction-box,
+.review-box {
+    overflow: hidden;
+    transition: height 0.3s ease; /* Hiệu ứng mượt mà */
+}
+
+/* Box thông tin hướng dẫn khi thu gọn */
+.collapsed {
+    height: 30px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hiệu ứng mở rộng box */
+.instruction-box:not(.collapsed),
+.review-box:not(.collapsed) {
+    height: auto;
+}
+
+/* Hiển thị icon và tiêu đề đẹp hơn */
+.information-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.information-icon i {
+    margin-right: 10px;
+    color: #007bff; /* Màu chủ đạo */
+    font-size: 20px;
+}
+
+.information-icon h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+/* Hiệu ứng khi hover đánh giá container */
+.review-container:hover {
+    background-color: #f0f0f0; /* Màu khi di chuột qua */
+}
+
+/* Style cho comment input */
+.comment-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 50px;
+    font-size: 14px;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #007bff; /* Màu chủ đạo khi focus */
+}
+
+/* Hiệu ứng nút gửi đánh giá */
+.review-box button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Hiệu ứng mượt mà */
+}
+
+.review-box button:hover {
+    background-color: #0056b3; /* Màu khi di chuột qua */
+}
+
+/* CSS cho trạng thái loading overlay */
+#loadingOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 999;
+    text-align: center;
+}
+
+#loadingOverlay img {
+    margin-top: 20%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite; /* Áp dụng hiệu ứng quay */
+}
+
+#loadingOverlay p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+        .margin-custom {
+    margin: 10px; /* Giá trị margin có thể điều chỉnh theo nhu cầu */
+}
+.logout-container {
+    margin-left: auto; /* Đẩy nút "LOG OUT" về phía bên phải */
+    margin-right: 0px; /* Khoảng cách từ mép phải của trang */
+}
+
+.logout {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Hiệu ứng mượt mà */
+}
+
+.logout:hover {
+    background-color: #0056b3; /* Màu khi di chuột qua */
+}
+    </style>
+</head>
+
+<body style="overflow-y: auto; height: 100%;">
+    <div class="flex">
+        <div id="name" class="flex center">
+            <a href="main.html"><img src="../logo.png" style="width: 50px;" draggable="false"></a>
+            <p style="padding: 0px 50px">Nguyễn Văn A</p>
+        </div>
+        <div class="logout-container">
+        <a href="../login.html">
+            <div id="kc-form-buttons" class="form-group">
+                <input tabindex="4" class="logout center" type="submit" value="LOG OUT" />
+            </div>
+        </a>
+            </div>
+    </div>
+
+    <div>
+        <div id="menu" class="flex center">
+            <button id="popmenu" onclick="pop()" class="flex" style=" min-height: 2.5rem; min-width: 2.5rem; padding-top: 8px;">
+                <span class="flex" style="pointer-events: none; justify-content: center;">
+                    <svg style="position: absolute; padding-left: 20px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h12M3 6h18M3 18h6"></path>
+                    </svg>
+                </span>
+            </button>
+            <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
+        </div>
+        <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+
+            <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
+            <li><a href="log.html">Log</a></li>
+            <li><a href="pay.html">Payment</a></li>
+            <li style="border: none;"><a href="my.html">My Profile</a></li>
+
+        </div>
+    </div>
+
+    <!-- Printer and Page Setup Boxes -->
+    <div class="flex">
+        <div class="printer-box">
+            <h3>Printer</h3>
+            <p id="printerName">Printer Name: </p>
+            <p id="printerID">Printer id: </p>
+            <p id="printerLocation">Printer Location: </p>
+            <button class="print-button" onclick="confirmPrint()">
+    		<i class="fa fa-print fa-2x" style="margin-bottom: 10px;"></i> Print
+	    </button>
+        </div>
+
+        <!-- Page Setup Box -->
+        <div class="page-setup-box">
+            <h3>Page Setup</h3>
+            <label for="numPages">Number of Copies:</label>
+            <input type="number" id="numPages" name="numPages" value="1" required>
+            <br>
+            <label for="Colour">Colour:</label>
+            <select id="Colour" name="Colour">
+                <option value="Yes">Yes</option>
+                <option value="Half">Half</option>
+                <option value="No">No</option>
+            </select>
+            <br>
+            <label for="doubleSided">Double Sided:</label>
+            <select id="doubleSided" name="doubleSided">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <br>
+            <label for="margins">Margins:</label>
+            <select id="margins" name="margins">
+                <option value="normal">Normal</option>
+                <option value="narrow">Narrow</option>
+                <option value="moderate">Moderate</option>
+                <option value="wide">Wide</option>
+               <option value="mirrored">Mirrored</option>
+            </select>
+            <br>
+            <label for="customMargin">Custom Margin:</label>
+            <input type="text" id="customMargin" name="customMargin" placeholder="Enter custom margin">
+            <br>
+            <label for="pageSize">Page Size:</label>
+            <select id="pageSize" name="pageSize">
+                <option value="letter">Letter</option>
+                <option value="a4">A4</option>
+                <option value="a3">A3</option>
+                <option value="a5">A5</option>
+                <option value="a6">A6</option>
+                <option value="b4">B4</option>
+                <!-- Add more page size options as needed -->
+            </select>
+            <br>
+            <label for="pageRange">Page Range:</label>
+            <input type="text" id="pageRange" name="pageRange" placeholder="e.g., 1-5">
+            <br>
+            <div class="file-info" id="fileInfo">
+                <h4>Uploaded File Information</h4>
+                <p id="docName">Document Name: </p>
+                <p id="docType">Document Type: </p>
+                <p id="docSize">Document Size: </p>
+                <p id="totalPageCount">Total Pages: </p> <!-- Thêm dòng này -->
+            </div>
+        </div>
+
+        <!-- Hướng dẫn sử dụng Box -->
+        <div class="instruction-box" id="instructionBox">
+            <div class="information-icon" onclick="toggleBox('instructionBox')">
+                <i class="fa fa-info-circle"></i>
+                <h3>Hướng dẫn sử dụng</h3>
+            </div>
+            <p>Thông tin hướng dẫn cách sử dụng chức năng thiết kế in:</p>
+                <!-- Thêm các hướng dẫn sử dụng vào đây -->
+    <div>
+        <h4>Bước 1: Chọn số lượng bản in</h4>
+        <p>Điền số lượng bản in bạn muốn vào ô "Number of Copies" trong Page Setup Box.</p>
+    </div>
+    <div>
+        <h4>Bước 2: Cấu hình in</h4>
+        <p>Chọn các tùy chọn như màu sắc, in hai mặt, kích thước giấy, và các tùy chọn khác trong Page Setup Box.</p>
+    </div>
+    <div>
+        <h4>Bước 3: Kiểm tra và xác nhận</h4>
+        <p>Đảm bảo kiểm tra lại các cài đặt và nhấn nút "Print" để xác nhận in.</p>
+    </div>
+
+    <!-- Kết thúc hướng dẫn sử dụng -->
+
+        </div>
+
+        <!-- Review Box -->
+        <div class="review-box" id="reviewBox">
+            <div class="information-icon" onclick="toggleBox('reviewBox')">
+                <i class="fa fa-star"></i>
+                <h3>Đánh giá 5 sao</h3>
+            </div>
+            <div class="review-container">
+                <!-- Tài khoản và số sao -->
+                <div class="review-item">
+                    <div>Tài khoản A</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-item">
+                    <div>Tài khoản B</div>
+                    <div>⭐⭐⭐⭐⭐</div>
+                </div>
+                <!-- Lời đánh giá -->
+                <div class="comment-section">
+                    <div class="comment-input" contenteditable="true" style="border: 1px solid black; padding: 4px; min-height: 50px;" placeholder="Viết đánh giá của bạn (tối đa 200 chữ)..."></div>
+                    <div class="star-rating">
+                        <div class="star" onclick="selectStar(1)">⭐</div>
+                        <div class="star" onclick="selectStar(2)">⭐</div>
+                        <div class="star" onclick="selectStar(3)">⭐</div>
+                        <div class="star" onclick="selectStar(4)">⭐</div>
+                        <div class="star" onclick="selectStar(5)">⭐</div>
+                    </div>
+                    <button onclick="confirmReview()">Gửi đánh giá</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); z-index: 999; text-align: center;">
+    <img src="icegif-1260.gif" alt="Loading..." style="margin-top: 20%; width: 100px; height: 100px;">
+    <p>Đang in...</p>
+</div>
+        <script src="../main.js"></script>
+        <script>
+            // Lấy thông tin máy in từ sessionStorage
+var storedPrinterInfo = sessionStorage.getItem("selectedPrinter");
+
+if (storedPrinterInfo) {
+    var printerInfo = JSON.parse(storedPrinterInfo);
+
+    // Đặt thông tin vào các phần tử HTML tương ứng
+    document.getElementById("printerID").innerText = "Printer id: " + printerInfo.id;
+    document.getElementById("printerName").innerText = "Printer Name: " + printerInfo.brand;
+    document.getElementById("printerLocation").innerText = "Printer Location: " + printerInfo.campus + " - " + printerInfo.building + " - " + printerInfo.room;
+}
+
+// Xóa thông tin từ sessionStorage sau khi sử dụng
+sessionStorage.removeItem("selectedPrinter");
+
+            const pageSetup = {
+                numPages: 1,
+                doubleSided: true,
+                margins: 'normal',
+                pageSize: 'letter',
+                // Add more page setup options as needed
+            };
+
+            // Mock data for additional features
+            const additionalFeatures = {
+                colorPrinting: true,
+                pageRange: '',
+                totalPages: 0,
+                dataSize: '0 MB',
+                docName: 'Untitled',
+                docType: 'Unknown',
+            };
+
+            // Update printer box with dynamic data
+            function updatePrinterBox() {
+                const printerName = document.getElementById('printerName');
+                printerName.textContent = `Printer Name: ${printerDetails.name}`;
+                // Update other printer details as needed
+            }
+
+            // Update page setup box with dynamic data
+            function updatePageSetupBox() {
+                const numPagesInput = document.getElementById('numPages');
+                const doubleSidedSelect = document.getElementById('doubleSided');
+                const marginsSelect = document.getElementById('margins');
+                const pageSizeSelect = document.getElementById('pageSize');
+
+                numPagesInput.value = pageSetup.numPages;
+                doubleSidedSelect.value = pageSetup.doubleSided.toString();
+                marginsSelect.value = pageSetup.margins;
+                pageSizeSelect.value = pageSetup.pageSize;
+                // Update other page setup options as needed
+                // Thêm đoạn mã để lấy giá trị custom margin và áp dụng
+                const customMarginInput = document.getElementById('customMargin');
+                const customMarginValue = customMarginInput.value;
+
+                // Áp dụng custom margin cho các box cần thiết
+                const printerBox = document.querySelector('.printer-box');
+                const pageSetupBox = document.querySelector('.page-setup-box');
+                const instructionBox = document.querySelector('.instruction-box');
+                const reviewBox = document.querySelector('.review-box');
+
+                // Xóa các margin class trước khi thêm mới
+                printerBox.classList.remove('margin-custom');
+                pageSetupBox.classList.remove('margin-custom');
+                instructionBox.classList.remove('margin-custom');
+                reviewBox.classList.remove('margin-custom');
+
+                // Nếu có giá trị custom margin, thêm margin class
+                if (customMarginValue !== '') {
+                    printerBox.classList.add('margin-custom');
+                    pageSetupBox.classList.add('margin-custom');
+                    instructionBox.classList.add('margin-custom');
+                    reviewBox.classList.add('margin-custom');
+                }
+            }
+
+            // Update additional features box with dynamic data
+            function updateAdditionalFeaturesBox() {
+                const colorPrintingSelect = document.getElementById('colorPrinting');
+                const pageRangeInput = document.getElementById('pageRange');
+                const totalPagesSpan = document.getElementById('totalPages');
+                const dataSizeSpan = document.getElementById('dataSize');
+                const docNameSpan = document.getElementById('docName');
+                const docTypeSpan = document.getElementById('docType');
+
+                colorPrintingSelect.value = additionalFeatures.colorPrinting.toString();
+                pageRangeInput.value = additionalFeatures.pageRange;
+                totalPagesSpan.textContent = additionalFeatures.totalPages;
+                dataSizeSpan.textContent = additionalFeatures.dataSize;
+                docNameSpan.textContent = additionalFeatures.docName;
+                docTypeSpan.textContent = additionalFeatures.docType;
+            }
+	    function toggleBox(boxId) {
+    		const box = document.getElementById(boxId);
+    		box.classList.toggle('collapsed');
+	    }
+            // Print Document Function
+            function printDocument() {
+                // Implement your print functionality here
+		// Trừ số lượng giấy còn lại sau khi in
+                alert('Printing document...');
+            }
+
+            // Confirm Print Function
+function confirmPrint() {
+    const userConfirmed = confirm('Bạn chắc chắn muốn in?');
+    if (userConfirmed) {
+        // Check remaining paper count
+        var remainingPaperCount = localStorage.getItem("currentCount");
+
+        if (remainingPaperCount !== null && parseInt(remainingPaperCount) <= 0) {
+            // If paper count is less than or equal to 0, redirect to top_up.html
+               // Hiển thị trạng thái loading
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    loadingOverlay.style.display = 'block';
+
+    // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
+    setTimeout(function () {
+        // Ẩn trạng thái loading
+        loadingOverlay.style.display = 'none';
+
+        // Chuyển hướng sang trang success.html
+        window.location.href = 'top_up.html';
+    }, 3000); // 2000 milliseconds = 2 seconds
+        } else {
+            // Update my.html with the entered amount
+            updatePrintHtml();
+
+            // Call the function to redirect and show loading status
+            redirectToSuccessPage();
+        }
+    }
+}
+            
+           // Hàm để lấy thông tin tài liệu từ sessionStorage
+            function getUploadedFileInfo() {
+                const uploadedFileJson = sessionStorage.getItem('uploadedFile');
+                if (uploadedFileJson) {
+                    const uploadedFile = JSON.parse(uploadedFileJson);
+                    return uploadedFile;
+                }
+                return null;
+            }
+// Hàm chuyển đổi kích thước file từ bytes sang các đơn vị khác
+function formatFileSize(bytes) {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+
+    if (bytes === 0) return '0 Byte';
+    
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+}
+
+            // Hàm để hiển thị thông tin tài liệu trong Page Setup Box
+            function displayUploadedFileInfo() {
+    const uploadedFileInfo = getUploadedFileInfo();
+    if (uploadedFileInfo) {
+        const docNameSpan = document.getElementById('docName');
+        const docTypeSpan = document.getElementById('docType');
+        const docSizeSpan = document.getElementById('docSize');
+        const totalPageCountSpan = document.getElementById('totalPageCount');
+
+        // Hiển thị thông tin tài liệu
+        docNameSpan.textContent = `Document Name: ${uploadedFileInfo.name}`;
+        docTypeSpan.textContent = `Document Type: ${uploadedFileInfo.type}`;
+        
+        // Chuyển đổi và hiển thị dung lượng file
+        const formattedSize = formatFileSize(uploadedFileInfo.size);
+        docSizeSpan.textContent = `Document Size: ${formattedSize}`;
+        // Lấy giá trị totalPageCount từ sessionStorage và hiển thị
+        const totalPageCount = sessionStorage.getItem('totalPageCount');
+        totalPageCountSpan.textContent = `Total Pages: ${totalPageCount}`;
+    }
+            }
+
+            // Gọi hàm hiển thị thông tin tài liệu khi trang được load
+            window.onload = function () {
+                displayUploadedFileInfo();
+            };
+	
+// Lưu trữ số sao được chọn
+let selectedStar = 0;
+function redirectToSuccessPage() {
+   // Hiển thị trạng thái loading
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    loadingOverlay.style.display = 'block';
+
+    // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
+    setTimeout(function () {
+        // Ẩn trạng thái loading
+        loadingOverlay.style.display = 'none';
+
+        // Chuyển hướng sang trang success.html
+        window.location.href = 'success.html';
+    }, 3000); // 2000 milliseconds = 2 seconds
+}
+// Hàm chọn số sao
+function selectStar(star) {
+    selectedStar = star;
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+        star.style.color = index < selectedStar ? 'gold' : 'black';
+    });
+}
+
+// Hàm xác nhận và hiển thị thông báo đánh giá
+function confirmReview() {
+    const commentInput = document.querySelector('.comment-input');
+    const comment = commentInput.textContent.trim(); // Lấy nội dung đánh giá
+
+    if (selectedStar === 0) {
+        alert('Vui lòng chọn số sao trước khi gửi đánh giá.');
+        return;
+    }
+
+    if (comment === '') {
+        alert('Vui lòng nhập đánh giá của bạn trước khi gửi.');
+        return;
+    }
+
+    // Gửi đánh giá và số sao đến server hoặc xử lý theo nhu cầu cụ thể của bạn
+    // Ở đây, chỉ hiển thị thông báo đánh giá trong console
+
+    console.log(`Đánh giá: ${selectedStar} sao`);
+    console.log(`Lời đánh giá: ${comment}`);
+
+    // Thông báo thành công
+    alert('Đánh giá của bạn đã được gửi thành công!');
+}
+    function updatePrintHtml() {
+      // Get the entered amount
+        const numPagesInput = document.getElementById('numPages');
+        const numPages = parseInt(numPagesInput.value);
+        const totalPageCount = sessionStorage.getItem('totalPageCount');
+        const amount = numPages * parseInt(totalPageCount);
+
+      // Send the amount to my.html using localStorage
+      localStorage.setItem("updateAmount", amount);
+    }
+            // Initial update of all boxes
+            updatePrinterBox();
+            updatePageSetupBox();
+
+        </script>
+    </body>
+</html>
