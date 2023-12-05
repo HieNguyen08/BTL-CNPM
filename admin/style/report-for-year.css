@@ -1,0 +1,427 @@
+.email-icon,
+.email-icon1,
+.email-icon2 {
+  position: absolute;
+  top: 256px;
+  left: 1149px;
+  width: 291px;
+  height: 71px;
+}
+.email-icon1,
+.email-icon2 {
+  top: 189px;
+}
+.email-icon2 {
+  top: 240px;
+  left: 19px;
+  width: 254px;
+  height: 87px;
+}
+.email-icon3,
+.email-icon4,
+.email-icon5 {
+  position: absolute;
+  top: 349px;
+  left: 18.8px;
+  width: 250px;
+  height: 87px;
+}
+.email-icon4,
+.email-icon5 {
+  top: 460px;
+}
+.email-icon5 {
+  top: 581px;
+  left: 23px;
+}
+.email-icon6,
+.menu-fill-icon {
+  position: absolute;
+  top: 66px;
+  left: 0;
+  width: 1440px;
+  height: 71px;
+}
+.menu-fill-icon {
+  top: 70px;
+  left: 8px;
+  width: 45.3px;
+  height: 45.3px;
+  overflow: hidden;
+}
+.option {
+  position: absolute;
+  height: 3.23%;
+  width: 17.58%;
+  top: 8.28%;
+  left: 41.28%;
+  line-height: 32px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.email-icon7 {
+  position: absolute;
+  top: 125.9px;
+  left: 0;
+  width: 291px;
+  height: 71px;
+  cursor: pointer;
+}
+.email-icon8,
+.email-icon9 {
+  position: absolute;
+  width: 297px;
+}
+.email-icon8 {
+  top: 125.9px;
+  left: 283px;
+  height: 71px;
+  cursor: pointer;
+}
+.email-icon9 {
+  left: 860px;
+}
+.email-icon10,
+.email-icon11,
+.email-icon9 {
+  top: 125.9px;
+  height: 71px;
+  cursor: pointer;
+}
+.email-icon10 {
+  position: absolute;
+  left: 1149px;
+  width: 291px;
+}
+.email-icon11 {
+  left: 572px;
+  width: 296px;
+}
+.email-icon11,
+.log-out,
+.login {
+  position: absolute;
+}
+.log-out {
+  top: 14px;
+  left: 1187.4px;
+  font-family: var(--font-inter);
+  color: var(--white);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 217px;
+  height: 24px;
+}
+.login {
+  top: -1px;
+  left: 1250.4px;
+  border-radius: var(--br-mini);
+  background-color: var(--color-darkturquoise);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-silver-200);
+  box-sizing: border-box;
+  width: 190px;
+  height: 62px;
+  cursor: pointer;
+}
+.log-out1 {
+  position: absolute;
+  top: 19px;
+  left: calc(50% + 598.4px);
+  font-size: var(--font-size-base);
+  display: inline-block;
+  font-family: var(--font-inter);
+  text-align: center;
+  width: 89px;
+  height: 30px;
+}
+.email-icon12,
+.ssps-1-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 314.4px;
+  height: 70px;
+}
+.ssps-1-2 {
+  left: 25.4px;
+  width: 62px;
+  height: 62px;
+  object-fit: cover;
+}
+.email-icon13,
+.report-for-year-child {
+  position: absolute;
+  top: 859.2px;
+  left: 15.1px;
+  width: 3px;
+  height: 7px;
+}
+.email-icon13 {
+  top: 860.7px;
+  left: 0;
+  width: 1440px;
+  height: 163.3px;
+}
+.option1,
+.option2 {
+  position: absolute;
+  width: 20.49%;
+  top: 87.81%;
+  font-size: var(--font-size-5xl);
+  line-height: 32px;
+  display: flex;
+  color: var(--white);
+  align-items: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.option1 {
+  height: 6.47%;
+  left: 10.11%;
+  text-align: center;
+  justify-content: center;
+}
+.option2 {
+  height: 3.23%;
+  left: 33.58%;
+}
+.option2,
+.option3,
+.option4 {
+  text-align: center;
+  justify-content: center;
+}
+.option3 {
+  position: absolute;
+  height: 3.23%;
+  width: 20.49%;
+  top: 87.81%;
+  left: 61.78%;
+  font-size: var(--font-size-5xl);
+  line-height: 32px;
+  display: flex;
+  color: var(--white);
+  align-items: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.option4 {
+  top: 91.74%;
+  left: 62.26%;
+}
+.option4,
+.option5,
+.option6 {
+  position: absolute;
+  height: 3.23%;
+  width: 30.49%;
+  line-height: 32px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.option5 {
+  top: 92.03%;
+  left: 28.24%;
+  text-align: center;
+  justify-content: center;
+}
+.option6 {
+  top: 94.97%;
+  left: 65.32%;
+}
+.streamlinehq-programming-web-icon {
+  position: absolute;
+  top: 897.7px;
+  left: 539.6px;
+  width: 29px;
+  height: 29px;
+  overflow: hidden;
+}
+.streamlinehq-mail-chat-two-bub-icon {
+  position: absolute;
+  top: 902.7px;
+  left: 895.6px;
+  width: 23px;
+  height: 24px;
+  overflow: hidden;
+}
+.streamlinehq-travel-map-locati-icon {
+  position: absolute;
+  top: 939.7px;
+  left: 894.6px;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+.image-23-icon,
+.ssps-3-1 {
+  position: absolute;
+  top: 879.7px;
+  left: 45.6px;
+  width: 96px;
+  height: 98px;
+  object-fit: cover;
+}
+.image-23-icon {
+  top: 252px;
+  left: 336px;
+  width: 780px;
+  height: 528px;
+}
+.option10,
+.option11,
+.option12,
+.option13,
+.option14,
+.option7,
+.option8,
+.option9 {
+  position: absolute;
+  height: 3.22%;
+  width: 12.44%;
+  top: 14.16%;
+  left: 3.75%;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.option10,
+.option11,
+.option12,
+.option13,
+.option14,
+.option8,
+.option9 {
+  left: 26.04%;
+}
+.option10,
+.option11,
+.option12,
+.option13,
+.option14,
+.option9 {
+  left: 44.58%;
+}
+.option10,
+.option11,
+.option12,
+.option13,
+.option14 {
+  left: 65.07%;
+}
+.option11,
+.option12,
+.option13,
+.option14 {
+  left: 88.13%;
+}
+.option12,
+.option13,
+.option14 {
+  top: 20.02%;
+  left: 86.81%;
+}
+.option13,
+.option14 {
+  top: 26.56%;
+}
+.option14 {
+  left: 3.19%;
+}
+.average-login {
+  margin: 0;
+}
+.option-txt {
+  line-break: anywhere;
+  width: 100%;
+}
+.option15,
+.option16,
+.option17,
+.option18,
+.option19,
+.option20,
+.option21,
+.option22 {
+  position: absolute;
+  height: 7.52%;
+  width: 12.43%;
+  top: 34.28%;
+  left: 3.19%;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.option16,
+.option17,
+.option18,
+.option19,
+.option20,
+.option21,
+.option22 {
+  height: 3.22%;
+  width: 12.44%;
+  top: 47.66%;
+}
+.option17,
+.option18,
+.option19,
+.option20,
+.option21,
+.option22 {
+  top: 59.08%;
+}
+.option18,
+.option19,
+.option20,
+.option21,
+.option22 {
+  top: 25.78%;
+  left: 13.61%;
+}
+.option19,
+.option20,
+.option21,
+.option22 {
+  top: 35.84%;
+  left: 15.28%;
+}
+.option20,
+.option21,
+.option22 {
+  width: 5.83%;
+  top: 47.66%;
+  left: 13.26%;
+}
+.option21,
+.option22 {
+  width: 12.44%;
+  top: 59.08%;
+  left: 14.1%;
+}
+.option22 {
+  top: 1.66%;
+  left: 9.03%;
+}
+.report-for-year {
+  position: relative;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  background-image: url(./public/newBG.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
