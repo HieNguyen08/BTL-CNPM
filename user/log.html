@@ -5,6 +5,288 @@
         <link rel="stylesheet" href="../style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            root{
+                --dark1: #0000004d;
+                --dark2: #181c20;
+                --dark3: #212529;
+                --dark4: #2d3135;
+                --dark5: #424549;
+                --dark6: #404346;
+                --dark7: #9c9c9c;
+                --dark8: #dae0e7;
+                --dark9: #262a2e;
+                --red1: #902e31;
+            }
+            header .filterEntries{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .filterEntries .entries{
+                color: var(--dark8);
+            }
+            .filterEntries .filter{
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+
+            }
+
+            table{
+                width: 100%;
+                background-color: white;
+            }
+
+            table .heading{
+                background: var(--dark5);
+                background: transparent;
+                color: var(--dark8);
+            }
+
+            table .heading th:hover{
+                background: var(--dark4);
+                transition: 0.3s;
+            }
+
+            table tr th, table tr td{
+                padding:3px 15px;
+                color: var(--dark8);
+                vertical-align: middle;
+                height: 1.5cm;
+            }
+
+            table tr th{
+                padding: 12px 15px;
+                font-size: x-large;
+                
+            }
+
+            table tr td:nth-child(1), table tr td:nth-child(2){
+                text-align: center;
+            }
+
+            table tr td img{
+                vertical-align: middle;
+            }
+            table tr:hover{
+                cursor: pointer;
+                background: var(--dark9);
+            }
+
+            table tr td{
+                border-bottom: 1px solid var(--dark6);
+                /* font-size: 3cm; */
+            }
+
+            table tbody tr:first-child td{
+                border-top: 1px solid var(--dark6);
+            }
+
+            table tbody tr:nth-child(odd){
+                background: var(--dark9);
+            }
+
+            table tbody tr:nth-child(odd) > td:nth-child(3){
+                background: var(--dark4);
+            }
+
+            table tr td{
+                font-size: medium;
+            }
+            .span{
+                color: var(--dark8);
+            }
+
+            .pagination{
+                display: flex;
+            }
+
+
+            .filter label{
+                color: var(--dark8);
+                margin-left: 5px;
+            }
+            .pagination button{
+                width: 40px;
+                padding: 5px 0;
+                color: black;
+                background: transparent;
+                font-size: 16px;
+                cursor: pointer;
+                pointer-events: auto;
+                outline: none;
+                border: 1px solid black;
+                border-left: none; 
+                margin: 0;
+            }
+
+            .pagination button:first-child{
+                width: 85px;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-left: 1px solid black;
+            }
+
+            .pagination button:last-child{
+                width: 85px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                color: black;
+            }
+
+            .pagination button.active, .pagination button:hover{
+                background: black;
+                color:white;
+            }
+
+
+
+            .pagination button.act:first-child{
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .pagination button.act:last-child{
+                opacity: 1;
+                pointer-events: auto;
+                color: black;
+            }
+
+
+            table tr .empty{
+                padding: 6px;
+                background: black;
+            }
+            .pagination button.active {
+                font-weight: bold;
+                color: white;
+                background-color: black;
+                /* Thêm các quy tắc khác tùy ý */
+            }
+
+        </style>
+
+        <script>
+            function searchById() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("searchId");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+
+                // Ẩn tất cả các dòng không khớp với ID tìm kiếm
+                for (i = 1; i < tr.length; i++) { // Bắt đầu từ 1 để bỏ qua dòng tiêu đề
+                    td = tr[i].getElementsByTagName("td")[0]; // 0 là chỉ số của cột ID
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase() === filter) {
+                            tr[i].style.display = ""; // Hiển thị dòng khớp
+                        } else {
+                            tr[i].style.display = "none"; // Ẩn các dòng không khớp
+                        }
+                    }       
+                }
+            }
+            function refreshTable() {
+                var table, tr, i;
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+
+                // Reset currentPage về 1
+                currentPage = 1;
+
+                // Hiển thị các hàng dựa trên phân trang
+                for (i = 1; i < tr.length; i++) {
+                    tr[i].style.display = (i <= rowsPerPage) ? "" : "none"; // Chỉ hiển thị hàng cho trang đầu tiên
+                }
+
+                // Cập nhật lại nút phân trang
+                updatePaginationButtons();
+            }
+
+            var currentPage = 1;
+            var rowsPerPage = 5; // Số hàng mỗi trang
+
+            function changePage(pageNumber, isNext = false) {
+                var table = document.getElementById("myTable");
+                var tr = table.getElementsByTagName("tr");
+                var totalPages = Math.ceil((tr.length - 1) / rowsPerPage); // Trừ 1 vì hàng đầu tiên là tiêu đề
+                
+                // Cập nhật số trang hiện tại
+                if (isNext) {
+                    if (pageNumber === -1 && currentPage > 1) {
+                        currentPage--;
+                    } else if (pageNumber === 1 && currentPage < totalPages) {
+                        currentPage++;
+                    }
+                } else {
+                    if (pageNumber > 0 && pageNumber <= totalPages) {
+                        currentPage = pageNumber;
+                    }
+                }
+
+
+                // Ẩn tất cả các dòng
+                for (var i = 1; i < tr.length; i++) {
+                    tr[i].style.display = "none";
+                }
+
+                // Hiển thị dòng dữ liệu cho trang hiện tại
+                var start = (currentPage - 1) * rowsPerPage + 1;
+                var end = start + rowsPerPage;
+                for (var i = start; i < end && i < tr.length; i++) {
+                    tr[i].style.display = "";
+                }
+
+                // Cập nhật trạng thái nút phân trang
+                updatePaginationButtons();
+            }
+
+            function updatePaginationButtons(totalPages) {
+                var buttons = document.querySelectorAll('.pagination button');
+                buttons.forEach(function(button) {
+                    if (parseInt(button.textContent) === currentPage) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                changePage(1); // Hiển thị trang đầu tiên
+            });
+            function updatePaginationButtons() {
+                var table = document.getElementById("myTable");
+                var tr = table.getElementsByTagName("tr");
+                var totalPages = Math.ceil((tr.length - 1) / rowsPerPage);
+
+                var paginationDiv = document.querySelector('.pagination');
+                paginationDiv.innerHTML = ''; // Xóa nút phân trang hiện có
+
+                // Thêm nút "Prev"
+                paginationDiv.innerHTML += '<button onclick="changePage(-1, true)">Prev</button>';
+
+                // Thêm nút cho mỗi trang
+                for (var i = 1; i <= totalPages; i++) {
+                    var activeClass = i === currentPage ? 'active' : '';
+                    paginationDiv.innerHTML += `<button class="${activeClass}" onclick="changePage(${i})">${i}</button>`;
+                }
+
+                // Thêm nút "Next"
+                paginationDiv.innerHTML += '<button onclick="changePage(1, true)">Next</button>';
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                updatePaginationButtons();
+                changePage(1); // Hiển thị trang đầu tiên
+            });
+
+        </script>
+    
+
+
     </head>
     <body style="overflow-y: auto; height: 100%;">
         <div class="flex" style="justify-content: space-between;">
@@ -36,92 +318,183 @@
                 <li style="border: none;"><a href="my.html">My Profile</a></li>
             </div>
         </div>
-        <div>
-            <div id="sort" onclick="op()" class="flex box no-m" style="width: fit-content;">
-                <i class="fa fa-database" style="color: black; padding-right: 20px;"></i>Sort
+        <header>
+
+            <div class="filterEntries">
+                <!-- <div class="entries">
+                    Show <select name="" id="table_size">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select> entries
+                </div> -->
+
+                <div class="filter">
+                    <label for="search" style="font-size: 20px;">Search:</label>
+                    <input type="search" name="" id="searchId" placeholder="Enter id" style="font-size: 18px; margin-left: 10px;">
+                    <button onclick="searchById()">Search</button>
+                    <button onclick="refreshTable()">Refresh</button>
+                </div>
             </div>
-            <div class="loglist">
-                <div style="grid-area: detail;" class="flex">Number of pages and size</div>
-                <div style="grid-area: location;" class="center flex">Location</div>
-                <div style="grid-area: printer;" class="center flex">Printer</div>
-                <div style="grid-area: date;" class="right flex">Date</div>
-            </div>
-            <div class="loglist">
-                <div style="grid-area: detail;" class="flex">26 page/ Size A4</div>
-                <div style="grid-area: location;" class="center flex">B1</div>
-                <div style="grid-area: printer;" class="center flex">Printer</div>
-                <div style="grid-area: date;" class="right flex">03/11/2023</div>
-            </div>
-            <div class="loglist">
-                <div style="grid-area: detail;" class="flex">26 page/ Size A4</div>
-                <div style="grid-area: location;" class="center flex">B1</div>
-                <div style="grid-area: printer;" class="center flex">Printer</div>
-                <div style="grid-area: date;" class="right flex">03/11/2023</div>
-            </div>
-            <div class="loglist">
-                <div style="grid-area: detail;" class="flex">26 page/ Size A4</div>
-                <div style="grid-area: location;" class="center flex">B1</div>
-                <div style="grid-area: printer;" class="center flex">Printer</div>
-                <div style="grid-area: date;" class="right flex">03/11/2023</div>
-            </div>
-            <div class="loglist">
-                <div style="grid-area: detail;" class="flex">26 page/ Size A4</div>
-                <div style="grid-area: location;" class="center flex">B1</div>
-                <div style="grid-area: printer;" class="center flex">Printer</div>
-                <div style="grid-area: date;" class="right flex">03/11/2023</div>
-            </div>
+        </header>
+        <table id="myTable" border="1">
+            <thead>
+              <tr class="heading">
+                <th>ID</th>
+                <th>Number of Pages and Size</th>
+                <th>Location</th>
+                <th>Printer</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody class="copyInfo">
+                <tr>
+                    <td>0</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Dữ liệu ô 1</td>
+                    <td>Dữ liệu ô 2</td>
+                    <td>Dữ liệu ô 3</td>
+                    <td>Dữ liệu ô 4</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <div class="pagination" style="margin-top: 30px;">
+            <button onclick="changePage(-1, true)">Prev</button>
+            <button class="active" onclick="changePage(1)">1</button>
+            <button onclick="changePage(2)">2</button>
+            <button onclick="changePage(3)">3</button>
+            <button onclick="changePage(4)">4</button>
+            <button onclick="changePage(5)">5</button>
+            <button onclick="changePage(1, true)">Next</button>
         </div>
-        <div id="sortmenu" class="model flex-start justify-end flex">
-            <div class="shade"></div>
-            <div class="flex-column center sort login">
-                <div class="flex box personal"style="margin-bottom: 0%;">
-                    <div style="padding-right: 20px; grid-area: left; margin-top: 4px;">Location:</div>
-                    <div id="kc-form-buttons">
-                        <input type="search" id="id-hidden-input" name="credentialId" placeholder="Search (by ID)"/>
-                    </div>
-                </div>
-                <div class="flex box personal"style="margin-bottom: 0%;">
-                    <div style="padding-right: 20px; grid-area: left;">Page size:</div>
-                    <div class="flex">
-                        <div id="selsize" style="margin-right: 20px;">
-                            <input type="checkbox" id="a4" name="a4" value="a4">
-                            <label for="a4">A4</label>
-                        </div>
-                        <div id="selsize" style="margin-right: 20px;">
-                            <input type="checkbox" id="a3" name="a3" value="a3">
-                            <label for="a3">A3</label>
-                        </div>
-                        <div id="selsize" style="margin-right: 20px;">
-                            <input type="checkbox" id="both" name="both" value="both">
-                            <label for="both">Both</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex box personal" style="margin-bottom: 0%;">
-                    <div style="padding-right: 20px; grid-area: left;">Date:</div>
-                </div>
-                <div class="flex box" style="flex-direction: column;">
-                    <div class="flex box personal">
-                        <div style="padding-right: 20px; grid-area: left;">From:</div>
-                        <div style="grid-area: right;">1/1/2023</div>
-                    </div>
-                    <div class="flex box personal">
-                        <div style="padding-right: 20px; grid-area: left;">To:</div>
-                        <div style="grid-area: right;">6/9/2023</div>
-                    </div>
-                </div>
-                <div class="flex c-cen">
-                    <div onclick="op()" id="kc-form-buttons">
-    
-                        <input class="exit" type="submit" value="Exit"/>
-                    </div>
-                    <div onclick="op()" id="kc-form-buttons">
-    
-                        <input class="confirm" type="submit" value="Confirm"/>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <footer id="credit">
             <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
             <div style="grid-area: name;" class="center flex"><h1>Student Smart Printing Service</h1></div>
@@ -133,3 +506,5 @@
     </body>
     <script src="../main.js"></script>
 </html>
+
+
