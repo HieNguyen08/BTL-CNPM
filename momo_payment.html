@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="login-pf">
+    <head>
+        <title>Main</title>
+        <link rel="stylesheet" href="../style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .vertical-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .horizontal-container {
+                display: flex;
+                align-items: center;
+            }
+
+            .notify-box{
+                margin-top: 100px;
+                width: 450px;
+                height: 60px;
+                background-color: #FFFFFF;
+                border: 1px solid rgba(71, 244, 255, 0.90);
+                display: flex;
+                flex-direction: column  ;
+                justify-content: center;
+                align-items: center;
+                font: 48px;
+            }
+
+            .receipt-box{
+                width: 250px;
+                height: 60px;
+                margin-top: 10px;
+                background-color: #FFFFFF;
+                display: flex;
+                flex-direction: column  ;
+                justify-content: center;
+                align-items: center;
+                font: 48px;
+            }
+
+            .box{
+                margin: 20px;
+                width: 450px;
+                height: 450px;
+                background-color:  #ffffff;
+                display: flex;
+                flex-direction: column  ;
+                justify-content: center;
+                align-items: center
+            }
+
+            .corner-box{
+                margin: 10px;
+                width: 300px;
+                height: 300px;
+                border-radius: 10px;
+                background-color:  #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+        </style>
+    </head>
+    <body style="overflow-y: auto; height: 100%;">
+        <div class="flex" style="justify-content: space-between;">
+            <div id="name" class="flex center">
+                <a href="main.html"><img src="../logo.png" style="width: 50px;" draggable="false"></a>
+                <p style="padding: 0px 50px">Nguyễn Văn A</p>
+            </div>
+            <a href="../login.html">
+                <div id="kc-form-buttons" class="form-group">
+                    <input tabindex="4" class="logout center" name="logout" id="logout" type="submit" value="LOG OUT" />
+                </div>
+            </a>
+        </div>
+        <div>
+            <div id="menu" class="flex center">
+                <button id="popmenu" onclick="pop()" class="flex" style=" min-height: 2.5rem; min-width: 2.5rem; padding-top: 8px;">
+                    <span class="flex" style="pointer-events: none; justify-content: center;">
+                        <svg style="position: absolute; padding-left: 20px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h12M3 6h18M3 18h6"></path>
+                        </svg>
+                    </span>
+                </button>
+                <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
+            </div>
+            <div class="select-dropdown flex" role="listbox" id="select-dropdown">
+                <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
+                <li><a href="log.html">Log</a></li>
+                <li><a href="pay.html">Payment</a></li>
+                <li style="border: none;"><a href="my.html">My Profile</a></li>
+            </div>
+        </div>
+        <div class="vertical-container">
+            <div class="notify-box">
+                <div>
+                    Sử dụng ví MOMO để thanh toán
+                </div>
+            </div>
+            <div class="horizontal-container">
+                <div class="box" style="background-color: #D82D8B;">
+                    <div class="corner-box">
+                        <svg width="240" height="256" viewBox="0 0 240 256" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="240" height="256" fill="url(#pattern0)"/>
+                            <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_36_697" transform="matrix(0.00208333 0 0 0.00195312 -0.0333333 0)"/>
+                            </pattern>
+                            <image id="image0_36_697" width="512" height="512" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAA7jSURBVHic7dkxj1RpeobhB6sjnDho5Ixx4JWalJq0J3YKqXtDil+w0Uw4/IgtwiVmUscQWoXkiJZ2EkghmGRI20Gzkb0SvarzVvd5rkv6Ut7zne+c4oZzL8lVgG/1Lsnm2BdxQBPv/8sk24E5a7JL8uzYF8G6/dOxLwAAmCcAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAK3UtyNTDnMsnbgTnc3LOBGWs6/09JPgzMeZPr+7a03cCMX5P8NjDndZLPC884TfJ04RlJcpHkfGDOy4EZ3Nx5krOJQVcDa+JHhn+M87+ZTWbu2XZqQwO2mblnm4G9TJ3/1OJ22mXg/H0CAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoNDJsS/gwF4leXTsiziQn5P8cuyL4P94n+T7gTlPk+wH5kw4PfYFHNDU+f+Y5MnAnAlPkvx07Is4kPdJLo59EYeytgB4lOTxsS/iQB4c+wL4f33JzF/Mz7OeZ3lNps7/88CMKQ/iWb6VfAIAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACh0cuwLoMJpks3AnPdJvgzMmfAhybtjX8Qd869Z/jn7PcnlwjNghABgwpOva2nfJ9kPzJnw4uvi2+2TPF54xrvMxCwszicAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACp0c+wIO7OckD459EQfy5tgXcEBvk7wamPM0yfOFZ3xI8mLhGZN2AzPeZOb8J97/Twv/+Wv0Jsu/l1NWd/5XA2viR4Z/zJrOfz+wl/3QXqas6fzXZJeZs+F2Gjl/nwAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAodDI059nXBXfd4yRXx76IO2bq/f8+yX5gzpp4lov5HwAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAK3UuyG5hzluR8YM4vST4vPOM0yZOFZyTJ2ySXA3Mm/Jrkt4E53yV5sPAM5397/Xeuf9PW4F+S/PvAnGcDMy5z/Tzz7c5z/ffmKmyTXA2szcBeNkN72Q7sZYrz7z7/KfvMnM2azn9iLxP/yFybXQbOxicAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACp0k2Q/M+a8k3w/MeT80Y2IvTzNzNpuBGa8zs5eJ8+fmniT5aWDO2cCMyyQXA3Om3v81eZXk0cIz3mfm/H9O8uelh5wkebz0kFw/yGt5mL9kZi/PM3M2Ez5/XXR6kPU8y97/2+tR1nPPPn5di/IJAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACg0EmSdwNzPiXZDMxZk9OhOc7lZs6G5jzMzNnsB2ZMuUzyZeEZ7xf+8//mQ2Z+mydM/f7/dWDG1Pk/TPJgaNbitkmuLMu6dWvC1PsvZm8n539zuwzcM58AAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKHRvaM5Zkh+GZi3tYZIfB+a8SvJ2YM6E8yQXA3NeJPk4MGfCRa7v29JeDsz4NclvA3NeJ/m88IyHSX5aeEaS/CXref+nfv+/S/JgYM6E81zfN26ZTZKrgbWd2tCAbWbu2WZqQwN2mblnE2t34HtzTN7/22uf4z/rd2r5BAAAhQQAABQSAABQSAAAQCEBAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQCEBAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEChe0mujn0RcIe8S7I59kXcMdskfz72RcAd8jzJbukh/gcAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQveS7I59EXfMaZInA3PeJrkcmPNsYMZlrvezBp+SfBiY8yYz578dmHGa5N8G5qzJeZKzgTkvB2ZMeZLrZ21Jn5P8svCMJPlL1vObuSqbJFcDa+KHOUN7WVNkOv/u85+yy8zZrMk+y9+v/dhuBvgEAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQCEBAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQKF7SfYDc14neTEwZ8L9JI8G5jxN8h8Dc7YDMz4l+Tgw51WWP5v7Sc4WnpFc36/PA3MeD8z4nJnzX5OHSU4H5rwbmDHl5yz/nP2e5HLhGUnyY67/Dljc1cDaTWxkZXaZOZs12WfmnlmWdfvWJusx8vvvEwAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQCEBAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQKGTJO8G5nxKshmYM+H3JJcDcz5k5mwmnCb5bmDOXwdmTHmY6/u2tLU8Y0lyluT+wjO+ZOb9X5PTXD/PfLs1/f5nm+RqJWt/4HvTYOr81xKZSbLLzD1bk328/7eR9/+W8gkAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQidJdgNzzgZmTHmYmXu2Jms7/58G5vxPkucDcyacJ/njwJyHAzOmXCT5YWDOdmDGlB+TfF54xockLxaekcydf64sayVrk+Vthvayph/mbY7/bBxq7Q98b/6e3dB+Jjj/mxs5f58AAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKHU1sHZju+Gm1nT++6H9TKztge/N3+P8b7b2Q3tZk21mnrPNwF42Q3sZWf4HAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEInx76AA3uS5MGxL+JA3iS5PPZF3DGvk+wXnnGa6+dsaecDM5Lk5cCMNwMzppwm2R77Iu6YqWd5wqfMvDNjrgbWbmgv+6H9TKypH5k1nf+ETY7/bBxyrcma3n/r5msTbsQnAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAqdHPsC4IBeJXm08Iz7C//5f/MiyS8Dc/YDM17nej9L+88k/7zwjLNcP2dLmzr/NflTkj8sPON9kouFZ4wRAKzJoySPj30RB/IxM385T9yviX0kyeXQnAlT578mf8h63v8RPgEAQCEBAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQCEBAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQ6OfYFHNj7Y1/AAX069gXcQc7/5t4NzPgwMGPK75m5Z1dJNgNz1uT+0IxVncvVwNqN7Yabcv5w++wy825axcsnAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAAoJAAAoJAAAoJAAAIBCAgAACgkAACgkAACgkAAAgEICAAAKCQAAKCQAAKCQAACAQgIAAArdS3I1MOcyyduBOdzcs4EZazr/D0leDMy5SPLDwJztwIzzJH8cmDNh6vzPkzwamDPhPNfP89JeJPk4MGfCRa7v2+KuLMv65rXPjN3QfiZsh/aypvNfk6nz30xtaMDI++8TAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQCEBAACFBAAAFBIAAFBIAABAIQEAAIUEAAAUEgAAUEgAAEAhAQAAhQQAABQSAABQSAAAQCEBAACFBAAAFBIAAFBIAABAIQEAAIX+F9aF5jPIRWMFAAAAAElFTkSuQmCC"/>
+                            </defs>
+                        </svg>                            
+                    </div>
+                    <div class="notify-box" style="width: 330px;height: 50px;background-color: #FFD6E7;margin-top: 10px;">
+                        Mã QR này chỉ cung cấp cho 1 lần giao dịch!
+                    </div>
+                    <a href="pay.html">
+                        <div id="kc-form-buttons" class="form-group">
+                            <input style = "background-color: #EF5353; margin-top: 10px;" tabindex="4" type="submit" value="cancel"/>
+                        </div>
+                    </a>
+                </div>
+                <div class="box">
+                    <div class="corner-box" style="background-color: #72B1FF;flex-direction: column;">
+                        <div class="corner-box" style="background-color: #ffffff;width: 130px;height: 130px;">
+                            <div>
+                                <img src="../HCMCUT.svg" style="width: 100px;" draggable="false">
+                            </div>             
+                        </div>
+                        <div class="receipt-box"></div>           
+                    </div>
+                    <a href="receipt.html">
+                        <div id="kc-form-buttons" class="form-group">
+                            <input style = "background-color: #5AF64C; margin-top: 50px;" tabindex="4" type="submit" value="Confirm" onclick="updateTotalPaperInLocalStorage()"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+
+        </div>   
+        <footer id="credit">
+            <div style="grid-area: logo;" class="center flex"><img src="../logo.png" style="width: 100px;" draggable="false"></div>
+            <div style="grid-area: name;" class="center flex"><h1>Student Smart Printing Service</h1></div>
+            <div style="grid-area: website;"><h4><i class="fa fa-globe" style="color: black; padding-right: 5px;"></i>WEBSITE</h4></div>
+            <div style="grid-area: link; padding-left: 10px;" class="flex">SSPS.com</div>
+            <div style="grid-area: contact;"><h4><i class="fa fa-comments" style="color: black; padding-right: 5px;"></i>LIÊN HỆ QUẢN LÝ</h4></div>
+            <div style="grid-area: list;" class="flex"><i class="fa fa-map-marker" style="color: black; padding-right: 5px;"></i>268 Lý Thường Kiệt, P.14, Q.10, TP.HCM<br>(028) 38 651 670 - (028) 28 647 256</div>
+        </footer>
+    </body>
+    <script src="../main.js"></script>
+    <script>
+        // Function to display data from Local Storage in the receipt-box
+        function displayDataFromLocalStorage() {
+            // Lấy giá trị từ Local Storage
+            var storedTotalCost = localStorage.getItem('totalCost');
+    
+            // Hiển thị giá trị trong receipt-box
+            var receiptBox = document.querySelector('.receipt-box');
+            if (receiptBox) {
+                receiptBox.innerHTML = `<p>Total Cost: ${storedTotalCost} VnĐ</p>`;
+            }
+        }
+
+        function updateTotalPaperInLocalStorage(){
+            var totalPaper = parseInt(localStorage.getItem('totalPaper')) || 0;
+            var paperCount = parseInt(localStorage.getItem('paperCount')) || 0;
+
+            totalPaper += paperCount;
+
+            // Save the updated totalPaper to Local Storage
+            localStorage.setItem('totalPaper', totalPaper);
+        }
+
+        // Gọi hàm khi trang được tải
+        window.onload = displayDataFromLocalStorage();
+    </script>
+</html>
