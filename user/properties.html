@@ -339,19 +339,19 @@
         <script src="../main.js"></script>
         <script>
             // Lấy thông tin máy in từ sessionStorage
-var storedPrinterInfo = sessionStorage.getItem("selectedPrinter");
+            var storedPrinterInfo = sessionStorage.getItem("selectedPrinter");
 
-if (storedPrinterInfo) {
-    var printerInfo = JSON.parse(storedPrinterInfo);
+            if (storedPrinterInfo) {
+                var printerInfo = JSON.parse(storedPrinterInfo);
 
-    // Đặt thông tin vào các phần tử HTML tương ứng
-    document.getElementById("printerID").innerText = "Printer id: " + printerInfo.id;
-    document.getElementById("printerName").innerText = "Printer Name: " + printerInfo.brand;
-    document.getElementById("printerLocation").innerText = "Printer Location: " + printerInfo.campus + " - " + printerInfo.building + " - " + printerInfo.room;
-}
+                // Đặt thông tin vào các phần tử HTML tương ứng
+                document.getElementById("printerID").innerText = "Printer id: " + printerInfo.id;
+                document.getElementById("printerName").innerText = "Printer Name: " + printerInfo.brand;
+                document.getElementById("printerLocation").innerText = "Printer Location: " + printerInfo.campus + " - " + printerInfo.building + " - " + printerInfo.room;
+            }
 
-// Xóa thông tin từ sessionStorage sau khi sử dụng
-sessionStorage.removeItem("selectedPrinter");
+            // Xóa thông tin từ sessionStorage sau khi sử dụng
+            sessionStorage.removeItem("selectedPrinter");
 
             const pageSetup = {
                 numPages: 1,
@@ -431,47 +431,49 @@ sessionStorage.removeItem("selectedPrinter");
                 docNameSpan.textContent = additionalFeatures.docName;
                 docTypeSpan.textContent = additionalFeatures.docType;
             }
-	    function toggleBox(boxId) {
-    		const box = document.getElementById(boxId);
-    		box.classList.toggle('collapsed');
-	    }
+
+            function toggleBox(boxId) {
+                const box = document.getElementById(boxId);
+                box.classList.toggle('collapsed');
+            }
             // Print Document Function
             function printDocument() {
                 // Implement your print functionality here
-		// Trừ số lượng giấy còn lại sau khi in
+                // Trừ số lượng giấy còn lại sau khi in
                 alert('Printing document...');
             }
 
             // Confirm Print Function
-function confirmPrint() {
-    const userConfirmed = confirm('Bạn chắc chắn muốn in?');
-    if (userConfirmed) {
-        // Check remaining paper count
-        var remainingPaperCount = localStorage.getItem("currentCount");
+            function confirmPrint() {
+                const userConfirmed = confirm('Bạn chắc chắn muốn in?');
+                if (userConfirmed) {
+                    // Check remaining total paper
+                    var remainingPaperCount = localStorage.getItem("totalPaper");
 
-        if (remainingPaperCount !== null && parseInt(remainingPaperCount) <= 0) {
-            // If paper count is less than or equal to 0, redirect to top_up.html
-               // Hiển thị trạng thái loading
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    loadingOverlay.style.display = 'block';
+                    if (remainingPaperCount !== null && parseInt(remainingPaperCount) <= 0) {
+                        // If total paper is less than or equal to 0, redirect to top_up.html
+                        // Hiển thị trạng thái loading
+                        const loadingOverlay = document.getElementById('loadingOverlay');
+                        loadingOverlay.style.display = 'block';
 
-    // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
-    setTimeout(function () {
-        // Ẩn trạng thái loading
-        loadingOverlay.style.display = 'none';
+                        // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
+                        setTimeout(function () {
+                            // Ẩn trạng thái loading
+                            loadingOverlay.style.display = 'none';
 
-        // Chuyển hướng sang trang success.html
-        window.location.href = 'top_up.html';
-    }, 3000); // 2000 milliseconds = 2 seconds
-        } else {
-            // Update my.html with the entered amount
-            updatePrintHtml();
+                            // Chuyển hướng sang trang success.html
+                            window.location.href = 'top_up.html';
+                        }, 3000); // 2000 milliseconds = 2 seconds
+                    } 
+                    else {
+                        // Update my.html with the entered amount
+                        updatePrintHtml();
 
-            // Call the function to redirect and show loading status
-            redirectToSuccessPage();
-        }
-    }
-}
+                        // Call the function to redirect and show loading status
+                        redirectToSuccessPage();
+                    }
+                }
+            }
             
            // Hàm để lấy thông tin tài liệu từ sessionStorage
             function getUploadedFileInfo() {
@@ -482,37 +484,38 @@ function confirmPrint() {
                 }
                 return null;
             }
-// Hàm chuyển đổi kích thước file từ bytes sang các đơn vị khác
-function formatFileSize(bytes) {
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
 
-    if (bytes === 0) return '0 Byte';
-    
-    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+            // Hàm chuyển đổi kích thước file từ bytes sang các đơn vị khác
+            function formatFileSize(bytes) {
+                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
 
-    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-}
+                if (bytes === 0) return '0 Byte';
+                
+                const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+
+                return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+            }
 
             // Hàm để hiển thị thông tin tài liệu trong Page Setup Box
             function displayUploadedFileInfo() {
-    const uploadedFileInfo = getUploadedFileInfo();
-    if (uploadedFileInfo) {
-        const docNameSpan = document.getElementById('docName');
-        const docTypeSpan = document.getElementById('docType');
-        const docSizeSpan = document.getElementById('docSize');
-        const totalPageCountSpan = document.getElementById('totalPageCount');
+                const uploadedFileInfo = getUploadedFileInfo();
+                if (uploadedFileInfo) {
+                    const docNameSpan = document.getElementById('docName');
+                    const docTypeSpan = document.getElementById('docType');
+                    const docSizeSpan = document.getElementById('docSize');
+                    const totalPageCountSpan = document.getElementById('totalPageCount');
 
-        // Hiển thị thông tin tài liệu
-        docNameSpan.textContent = `Document Name: ${uploadedFileInfo.name}`;
-        docTypeSpan.textContent = `Document Type: ${uploadedFileInfo.type}`;
-        
-        // Chuyển đổi và hiển thị dung lượng file
-        const formattedSize = formatFileSize(uploadedFileInfo.size);
-        docSizeSpan.textContent = `Document Size: ${formattedSize}`;
-        // Lấy giá trị totalPageCount từ sessionStorage và hiển thị
-        const totalPageCount = sessionStorage.getItem('totalPageCount');
-        totalPageCountSpan.textContent = `Total Pages: ${totalPageCount}`;
-    }
+                    // Hiển thị thông tin tài liệu
+                    docNameSpan.textContent = `Document Name: ${uploadedFileInfo.name}`;
+                    docTypeSpan.textContent = `Document Type: ${uploadedFileInfo.type}`;
+                    
+                    // Chuyển đổi và hiển thị dung lượng file
+                    const formattedSize = formatFileSize(uploadedFileInfo.size);
+                    docSizeSpan.textContent = `Document Size: ${formattedSize}`;
+                    // Lấy giá trị totalPageCount từ sessionStorage và hiển thị
+                    const totalPageCount = sessionStorage.getItem('totalPageCount');
+                    totalPageCountSpan.textContent = `Total Pages: ${totalPageCount}`;
+                }
             }
 
             // Gọi hàm hiển thị thông tin tài liệu khi trang được load
@@ -520,65 +523,72 @@ function formatFileSize(bytes) {
                 displayUploadedFileInfo();
             };
 	
-// Lưu trữ số sao được chọn
-let selectedStar = 0;
-function redirectToSuccessPage() {
-   // Hiển thị trạng thái loading
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    loadingOverlay.style.display = 'block';
+            // Lưu trữ số sao được chọn
+            let selectedStar = 0;
+            function redirectToSuccessPage() {
+            // Hiển thị trạng thái loading
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                loadingOverlay.style.display = 'block';
 
-    // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
-    setTimeout(function () {
-        // Ẩn trạng thái loading
-        loadingOverlay.style.display = 'none';
+                // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
+                setTimeout(function () {
+                    // Ẩn trạng thái loading
+                    loadingOverlay.style.display = 'none';
 
-        // Chuyển hướng sang trang success.html
-        window.location.href = 'success.html';
-    }, 3000); // 2000 milliseconds = 2 seconds
-}
-// Hàm chọn số sao
-function selectStar(star) {
-    selectedStar = star;
-    const stars = document.querySelectorAll('.star');
-    stars.forEach((star, index) => {
-        star.style.color = index < selectedStar ? 'gold' : 'black';
-    });
-}
+                    // Chuyển hướng sang trang success.html
+                    window.location.href = 'success.html';
+                }, 3000); // 2000 milliseconds = 2 seconds
+            }
 
-// Hàm xác nhận và hiển thị thông báo đánh giá
-function confirmReview() {
-    const commentInput = document.querySelector('.comment-input');
-    const comment = commentInput.textContent.trim(); // Lấy nội dung đánh giá
+            // Hàm chọn số sao
+            function selectStar(star) {
+                selectedStar = star;
+                const stars = document.querySelectorAll('.star');
+                stars.forEach((star, index) => {
+                    star.style.color = index < selectedStar ? 'gold' : 'black';
+                });
+            }
 
-    if (selectedStar === 0) {
-        alert('Vui lòng chọn số sao trước khi gửi đánh giá.');
-        return;
-    }
+            // Hàm xác nhận và hiển thị thông báo đánh giá
+            function confirmReview() {
+                const commentInput = document.querySelector('.comment-input');
+                const comment = commentInput.textContent.trim(); // Lấy nội dung đánh giá
 
-    if (comment === '') {
-        alert('Vui lòng nhập đánh giá của bạn trước khi gửi.');
-        return;
-    }
+                if (selectedStar === 0) {
+                    alert('Vui lòng chọn số sao trước khi gửi đánh giá.');
+                    return;
+                }
 
-    // Gửi đánh giá và số sao đến server hoặc xử lý theo nhu cầu cụ thể của bạn
-    // Ở đây, chỉ hiển thị thông báo đánh giá trong console
+                if (comment === '') {
+                    alert('Vui lòng nhập đánh giá của bạn trước khi gửi.');
+                    return;
+                }
 
-    console.log(`Đánh giá: ${selectedStar} sao`);
-    console.log(`Lời đánh giá: ${comment}`);
+                // Gửi đánh giá và số sao đến server hoặc xử lý theo nhu cầu cụ thể của bạn
+                // Ở đây, chỉ hiển thị thông báo đánh giá trong console
 
-    // Thông báo thành công
-    alert('Đánh giá của bạn đã được gửi thành công!');
-}
-    function updatePrintHtml() {
-      // Get the entered amount
-        const numPagesInput = document.getElementById('numPages');
-        const numPages = parseInt(numPagesInput.value);
-        const totalPageCount = sessionStorage.getItem('totalPageCount');
-        const amount = numPages * parseInt(totalPageCount);
+                console.log(`Đánh giá: ${selectedStar} sao`);
+                console.log(`Lời đánh giá: ${comment}`);
 
-      // Send the amount to my.html using localStorage
-      localStorage.setItem("updateAmount", amount);
-    }
+                // Thông báo thành công
+                alert('Đánh giá của bạn đã được gửi thành công!');
+            }
+
+            function updatePrintHtml() {
+
+                var totalPaperElement = parseInt(localStorage.getItem('totalPaper')) || 0;
+
+                // Get the entered amount
+                const numPagesInput = document.getElementById('numPages');
+                const numPages = parseInt(numPagesInput.value);
+                const totalPageCount = sessionStorage.getItem('totalPageCount');
+                const amount = numPages * parseInt(totalPageCount);
+                totalPaperElement -= amount;
+
+                // Set the totalPaper
+                localStorage.setItem('totalPaper', totalPaperElement);
+            }
+
             // Initial update of all boxes
             updatePrinterBox();
             updatePageSetupBox();
