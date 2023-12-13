@@ -89,6 +89,7 @@
             </div>
             <a href="../login.html">
                 <div id="kc-form-buttons" class="form-group">
+                    <input type="hidden" id="id-hidden-input" name="credentialId" />
                     <input tabindex="4" class="logout center" name="logout" id="logout" type="submit" value="LOG OUT" />
                 </div>
             </a>
@@ -105,9 +106,9 @@
                 <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
             </div>
             <div class="select-dropdown flex" role="listbox" id="select-dropdown">
-                <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
+                <li><a href="print.html">Print</a></li>
                 <li><a href="log.html">Log</a></li>
-                <li><a href="pay.html">Payment</a></li>
+                <li class="selected"><a href="pay.html">Payment</a></li>
                 <li style="border: none;"><a href="my.html">My Profile</a></li>
             </div>
         </div>
