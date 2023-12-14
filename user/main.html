@@ -42,12 +42,12 @@
                 <div>Cấp bậc thành viên</div>
                 <div>Binh Nhất</div>
                 <div>Số lần in: 1</div>
-                <div>Lần truy cập gần nhất:</div>
-                <div>09/11/2023</div>
+                <div id="last-access-label">Lần truy cập gần nhất:</div>
+                <div id="last-access-date">09/11/2023</div>
             </div>
             <div class="flex center flex-column" style="grid-area: display;">
                 <div>
-                    <div style="font-size: 5rem; font-weight: 600; grid-area: logo;">10:34</div>
+                    <div id="current-time" style="font-size: 5rem; font-weight: 600; grid-area: logo;"></div>
                 </div>
                 <div>
                     <img src="../HCMCUT.svg" style="width: 400px;" draggable="false">
@@ -64,4 +64,42 @@
         </footer>
     </body>
     <script src="../main.js"></script>
+    <script>
+        // Function to update the current time
+    function updateTime() {
+        // Get the current date and time
+        const now = new Date();
+
+        // Format the time as HH:mm
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const currentTime = `${hours}:${minutes}`;
+
+        // Update the content of the element with the current time
+        document.getElementById('current-time').textContent = currentTime;
+    }
+
+    // Function to update the last access date
+    function updateLastAccess() {
+        // Get the current date
+        const now = new Date();
+
+        // Format the date as MM/DD/YYYY
+        const month = (now.getMonth() + 1).toString().padStart(2, '0');
+        const day = now.getDate().toString().padStart(2, '0');
+        const year = now.getFullYear();
+
+        // Update the content of the element with the current date
+        document.getElementById('last-access-date').textContent = `${month}/${day}/${year}`;
+    }
+
+    // Update the time initially
+    updateTime();
+
+    // Update the time every second (1000 milliseconds)
+    setInterval(updateTime, 1000);
+
+    // Update the last access date initially
+    updateLastAccess();
+    </script>
 </html>

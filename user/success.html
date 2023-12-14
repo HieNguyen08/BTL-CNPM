@@ -30,10 +30,10 @@
                 <div style="width: 100%; padding-right: 40px;" class="flex center">Menu of service</div>
             </div>
             <div class="select-dropdown flex" role="listbox" id="select-dropdown">
-                <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="print.html">Print</a></li>
-                <li><a href="log.html">Log</a></li>
-                <li><a href="pay.html">Payment</a></li>
-                <li style="border: none;"><a href="my.html">My Profile</a></li>
+                <li style=" border-top-left-radius: 3px; border-bottom-left-radius: 3px;" class="selected"><a href="success.html">Print</a></li>
+                <li><a href="success.html">Log</a></li>
+                <li><a href="success.html">Payment</a></li>
+                <li style="border: none;"><a href="success.html">My Profile</a></li>
             </div>
         </div>
         <div class="flex-column center success">
@@ -77,7 +77,7 @@
             <div class="flex center" style="margin: 20px 0; padding-bottom: 30px;">
                 <a href="main.html">
                     <div id="kc-form-buttons" class="form-group">
-                        <input style="width: 100px;" tabindex="4" class="retry center" type="submit" value="Done"/>
+                        <input style="width: 100px;" tabindex="4" class="retry center" type="submit" value="Done" onclick="showSuccessAlert()"/>
                     </div>
                 </a>
             </div>
@@ -92,4 +92,17 @@
         </footer>
     </body>
     <script src="../main.js"></script>
+    <script>
+        function showSuccessAlert() {
+            alert("Document is ready! You can't click other buttons.");
+        }
+    
+        // Disable other buttons
+        const buttons = document.querySelectorAll(".select-dropdown li a");
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                alert("You can't click this button until the document is done!");
+            });
+        });
+    </script>
 </html>
