@@ -443,37 +443,42 @@
                 alert('Printing document...');
             }
 
-            // Confirm Print Function
             function confirmPrint() {
-                const userConfirmed = confirm('Bạn chắc chắn muốn in?');
-                if (userConfirmed) {
-                    // Check remaining total paper
-                    var remainingPaperCount = localStorage.getItem("totalPaper");
+    const userConfirmed = confirm('Bạn chắc chắn muốn in?');
+    if (userConfirmed) {
+        // Check remaining total paper
+        var remainingPaperCount = localStorage.getItem("totalPaper");
+// Get the entered amount
+                const numPagesInput = document.getElementById('numPages');
+                const numPages = parseInt(numPagesInput.value);
+                const totalPageCount = sessionStorage.getItem('totalPageCount');
+                const amount = numPages * parseInt(totalPageCount);
+		var check = parseInt(remainingPaperCount);
+                check -= amount;
 
-                    if (remainingPaperCount !== null && parseInt(remainingPaperCount) <= 0) {
-                        // If total paper is less than or equal to 0, redirect to top_up.html
-                        // Hiển thị trạng thái loading
-                        const loadingOverlay = document.getElementById('loadingOverlay');
-                        loadingOverlay.style.display = 'block';
+        if (check !== null && check <= 0) {
+            // If total paper is less than or equal to 0, redirect to top_up.html
+            // Display loading status
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.style.display = 'block';
 
-                        // Chờ một khoảng thời gian (ví dụ: 2 giây) để mô phỏng quá trình in
-                        setTimeout(function () {
-                            // Ẩn trạng thái loading
-                            loadingOverlay.style.display = 'none';
+            // Simulate the printing process with a delay (e.g., 3 seconds)
+            setTimeout(function () {
+                // Hide loading status
+                loadingOverlay.style.display = 'none';
 
-                            // Chuyển hướng sang trang success.html
-                            window.location.href = 'top_up.html';
-                        }, 3000); // 2000 milliseconds = 2 seconds
-                    } 
-                    else {
-                        // Update my.html with the entered amount
-                        updatePrintHtml();
+                // Redirect to top_up.html
+                window.location.href = 'top_up.html';
+            }, 3000); // 3000 milliseconds = 3 seconds
+        } else {
+            // Update my.html with the entered amount
+            updatePrintHtml();
 
-                        // Call the function to redirect and show loading status
-                        redirectToSuccessPage();
-                    }
-                }
-            }
+            // Call the function to redirect and show loading status
+            redirectToSuccessPage();
+        }
+    }
+}
             
            // Hàm để lấy thông tin tài liệu từ sessionStorage
             function getUploadedFileInfo() {
