@@ -362,7 +362,7 @@ function submitSearch() {
 // Hàm để sắp xếp bảng dựa trên kết quả tìm kiếm
 function sortTable() {
     var printerTable = document.getElementById("printerTable");
-    var rows = Array.from(printerTable.rows).slice(1); // Lấy các dòng, bỏ qua dòng header
+    var rows = Array.from(printerTable.rows).slice(2); // Lấy các dòng, bỏ qua dòng header
 
     var hasMatches = false;
 
