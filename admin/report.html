@@ -64,6 +64,20 @@
         .report-section .flex {
             margin-top: 10px;
         }
+
+        .flex.report-content {
+        display: flex;
+        }
+
+        .report-image {
+            flex: 1;
+        }
+
+        .report-info {
+            flex: 2;
+            padding-left: 350px; /* Điều chỉnh khoảng cách giữa ảnh và thông tin */
+        }
+
     </style>
 </head>
 
@@ -102,6 +116,7 @@
     </div>
 
     <div class="flex mt-60 p-25">
+
         <div class="report-options">
             <!-- Monthly/Yearly Report Selection -->
             <label for="report-type">Select Report Type:</label>
@@ -113,48 +128,59 @@
 
         <div id="monthly-report" class="report-section active">
             <h2>Monthly Report</h2>
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Total Users:</div>
-                <div style="grid-area: right;">100</div>
-            </div>
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Average Login Per Day:</div>
-                <div style="grid-area: right;">39</div>
-            </div>
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Total Usage:</div>
-                <div style="grid-area: right;">1000</div>
-            </div>
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Time:</div>
-                <div style="grid-area: right;">11/2023</div>
+
+            <div class="flex report-content">
+
+                <div class="report-image">
+                    <img id="monthly-report-image" src="../reportMonth.png" style="max-width: 190%;" />
+                </div>
+
+                <div class="report-info">
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Total Users:</div>
+                        <div style="margin-left: auto;">100</div>
+                    </div>
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Average Login Per Day:</div>
+                        <div style="margin-left: auto;">39</div>
+                    </div>
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Total Usage:</div>
+                        <div style="margin-left: auto;">1000</div>
+                    </div>
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Time:</div>
+                        <div style="margin-left: auto;">11/2023</div>
+                    </div>
+                </div>
             </div>
         </div>
-
+        
         <div id="yearly-report" class="report-section">
             <h2>Yearly Report</h2>
-            <!-- Add your yearly report content here -->
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Total Users:</div>
-                <div style="grid-area: right;">500</div>
+            <div class="flex report-content">
+                <div class="report-image">
+                    <img id="yearly-report-image" src="../reportYear.png" style="max-width: 190%;" />
+                </div>
+                <div class="report-info">
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Total Users:</div>
+                        <div style="margin-left: auto;">1069</div>
+                    </div>
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Average Login Per Day:</div>
+                        <div style="margin-left: auto;">150</div>
+                    </div>
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Total Usage:</div>
+                        <div style="margin-left: auto;">5000</div>
+                    </div>
+                    <div class="flex box grid-2 personal" style="width: 300px">
+                        <div style="margin-right: auto;">Time:</div>
+                        <div style="margin-left: auto;">2023</div>
+                    </div>
+                </div>
             </div>
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Average Login Per Day:</div>
-                <div style="grid-area: right;">150</div>
-            </div>
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Total Usage:</div>
-                <div style="grid-area: right;">5000</div>
-            </div>
-            <div class="flex box grid-2 personal" style="width: 200px">
-                <div style="padding-right: 20px; grid-area: left;">Time:</div>
-                <div style="grid-area: right;">2023</div>
-            </div>
-        </div>
-
-        <div>
-            <!-- Report Image (replace this with your actual image) -->
-            <img src="../reportMonth.png" style="max-width: 60%;" />
         </div>
     </div>
 
@@ -175,12 +201,19 @@
             var yearlyReport = document.getElementById("yearly-report");
             var reportType = document.getElementById("report-type").value;
 
+            var monthlyReportImage = document.getElementById("monthly-report-image");
+            var yearlyReportImage = document.getElementById("yearly-report-image");
+
             if (reportType === "monthly") {
                 monthlyReport.classList.add("active");
                 yearlyReport.classList.remove("active");
+                // Thay đổi đường dẫn ảnh cho phần Monthly
+                monthlyReportImage.src = "../reportMonth.png";
             } else if (reportType === "yearly") {
                 monthlyReport.classList.remove("active");
                 yearlyReport.classList.add("active");
+                // Thay đổi đường dẫn ảnh cho phần Yearly
+                yearlyReportImage.src = "../reportYear.png";
             }
         }
     </script>
